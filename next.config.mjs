@@ -12,6 +12,7 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
+  basePath: '/.'
 };
 
 const withCustomPWA = withPWA(nextPWAConfig);
