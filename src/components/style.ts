@@ -10,7 +10,7 @@ export const Header = styled.div`
   align-items: center;
 `;
 
-export const TitleHeader = styled.p`
+export const TitleHeader = styled.h1`
   color: #25272E;
   font-family: sans-serif;
   text-align: center;
