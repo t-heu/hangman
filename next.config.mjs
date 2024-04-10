@@ -11,6 +11,7 @@ const nextPWAConfig = {
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: false,
+  output: "export",
   basePath: '/hangman'
 };
 
