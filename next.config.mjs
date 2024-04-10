@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-//const nextConfig = {};
 import withPWA from 'next-pwa';
 
 const nextPWAConfig = {
@@ -18,5 +17,3 @@ const nextConfig = {
 const withCustomPWA = withPWA(nextPWAConfig);
 
 export default withCustomPWA(nextConfig);
-
-//export default nextConfig;
