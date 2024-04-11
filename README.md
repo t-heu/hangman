@@ -5,3 +5,4 @@
 Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou offline. Com uma variedade de temas e palavras, a diversão é garantida para todos!
 
 ## Preview
+![alt text](docs/preview.png "Title")
