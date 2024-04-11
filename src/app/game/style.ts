@@ -3,17 +3,21 @@ import styled from 'styled-components';
 // Game
 export const LetterContainer = styled.div`
   flex-direction: row;
-  align-items: center;
   flex-wrap: wrap;
   margin: 1em;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(6, 0fr);
+  grid-template-columns: repeat(5, 0fr);
   grid-gap: 0px;
-  
+  justify-items: center; /* Centraliza horizontalmente */
+  align-items: center;
 `;
 
 export const CharacterDisplay = styled.button`
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
   border-radius: 2px;
   border: 2px solid #444;
   background-color: #222;
@@ -23,7 +27,6 @@ export const CharacterDisplay = styled.button`
   margin: 1px;
   box-shadow: #000 1px 1px 0 2px;
   transition: none;
-  display: inline;
   cursor: pointer;
   font-family: inherit;
 

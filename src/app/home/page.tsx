@@ -164,7 +164,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   }
 
   const renderThemes = (item: any, index: any) => (
-    <div key={index}>
+    <div key={index} style={{display: 'flex', justifyContent: 'center'}}>
       <label className='container' htmlFor={`theme-${index}`}>{item.name}
       <input
         type="radio"
@@ -180,32 +180,32 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   );
 
   return (
+    <Main>
+      <Title className={`${sourceCodePro.className}`}>Escolha seu tema favorito:</Title>
+
+      {DataTheme.themes.map((data, i) => (
+        renderThemes(data, i)
+      ))}
+
+      <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
+
       <Main>
-        <Title className={`${sourceCodePro.className}`}>Escolha seu tema favorito:</Title>
+        <Title>JOGUE COM SEU COLEGA:</Title>
 
-        {DataTheme.themes.map((data, i) => (
-          renderThemes(data, i)
-        ))}
+        <OnlineRoomDiv>
+          <RoomDiv>
+            <Input value={nameP1} onChange={(e) => setNameP1(e.target.value)} placeholder='Seu nome' />
+            <Button text='CRIAR SALA' press={() => createGame(true)} />
+          </RoomDiv>
 
-        <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
-
-        <Main>
-          <Title>JOGUE COM SEU COLEGA:</Title>
-
-          <OnlineRoomDiv>
-            <RoomDiv>
-              <Input value={nameP1} onChange={(e) => setNameP1(e.target.value)} placeholder='Seu nome' />
-              <Button text='CRIAR SALA' press={() => createGame(true)} />
-            </RoomDiv>
-
-            <RoomDiv>
-              <Input value={nameP2} onChange={(e) => setNameP2(e.target.value)} placeholder='Seu nome' />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Code' />
-              <Button text='JOGAR' press={() => play()} />
-            </RoomDiv>
-          </OnlineRoomDiv>
-        </Main>
+          <RoomDiv>
+            <Input value={nameP2} onChange={(e) => setNameP2(e.target.value)} placeholder='Seu nome' />
+            <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Code' />
+            <Button text='JOGAR' press={() => play()} />
+          </RoomDiv>
+        </OnlineRoomDiv>
       </Main>
+    </Main>
   );
 }
 

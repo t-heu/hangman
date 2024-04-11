@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 import withPWA from 'next-pwa';
+const isProduction = process.env.NODE_ENV === 'production';
 
 const nextPWAConfig = {
   dest: 'public',
@@ -11,9 +12,9 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
-  basePath: '/hangman'
+  basePath: process.env.NODE_ENV === "development" ? '' : '/hangman'
 };
 
 const withCustomPWA = withPWA(nextPWAConfig);
 
-export default withCustomPWA(nextConfig);
+export default isProduction ? withCustomPWA(nextConfig) : nextConfig;
