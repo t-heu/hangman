@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
-// 
+export const Theme = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 275px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const Title = styled.p`
   color: #fff;
   font-size: 18px;
@@ -39,7 +50,12 @@ export const OnlineRoomDiv = styled.div`
   justify-content: space-around;
   flex-direction: row;
   display: flex;
-  width: 100%;
+  width: 50%;
+
+  /* Media query para telas pequenas */
+  @media (max-width: 768px) {
+    width: 100%; /* Ou qualquer outra largura desejada para telas pequenas */
+  }
 `;
 
 export const RoomDiv = styled.div`

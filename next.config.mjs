@@ -8,13 +8,18 @@ const nextPWAConfig = {
   skipWaiting: true,
 };
 
-const nextConfig = {
+const nextConfigFromPWA = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
-  basePath: process.env.NODE_ENV === "development" ? '' : '/hangman'
+  basePath: '/hangman'
+};
+
+const nextConfig = {
+  output: "export",
+  basePath: ''
 };
 
 const withCustomPWA = withPWA(nextPWAConfig);
 
-export default isProduction ? withCustomPWA(nextConfig) : nextConfig;
+export default isProduction ? withCustomPWA(nextConfigFromPWA) : nextConfig;

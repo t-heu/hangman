@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // HeaderComp
 export const Header = styled.div`
   background: #f5f5fa;
-  padding: 30px;
+  padding: 28px;
   display: flex;
   justify-content: center;
   align-items: center;

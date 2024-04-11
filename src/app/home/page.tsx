@@ -14,7 +14,8 @@ import {
   Input, 
   Main, 
   Title,
-  OnlineRoomDiv
+  OnlineRoomDiv,
+  Theme
 } from './style'
 
 export default function Home({changeComponent, code, currentPlayerUID, indexTheme}: any) {
@@ -164,7 +165,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   }
 
   const renderThemes = (item: any, index: any) => (
-    <div key={index} style={{display: 'flex', justifyContent: 'center'}}>
+    <div key={index} >
       <label className='container' htmlFor={`theme-${index}`}>{item.name}
       <input
         type="radio"
@@ -183,9 +184,11 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
     <Main>
       <Title className={`${sourceCodePro.className}`}>Escolha seu tema favorito:</Title>
 
-      {DataTheme.themes.map((data, i) => (
-        renderThemes(data, i)
-      ))}
+      <Theme>
+        {DataTheme.themes.map((data, i) => (
+          renderThemes(data, i)
+        ))}
+      </Theme>
 
       <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
 
