@@ -12,12 +12,18 @@ const nextConfigFromPWA = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
-  basePath: '/hangman'
+  basePath: '/hangman',
+  compiler: {
+    styledComponents: true,
+  }
 };
 
 const nextConfig = {
   output: "export",
-  basePath: ''
+  basePath: '',
+  compiler: {
+    styledComponents: true,
+  }
 };
 
 const withCustomPWA = withPWA(nextPWAConfig);

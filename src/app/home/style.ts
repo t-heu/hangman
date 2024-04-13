@@ -1,11 +1,78 @@
 import styled from 'styled-components';
 
+export const ContainerT = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #f5f5f0;
+  flex-wrap: wrap;
+
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+`;
+
+export const InputT = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked ~ .checkmark {
+    background-color: #222;
+    transition: .8s;
+    box-shadow: #000 inset 1px 1px 0 2px;
+  }
+`;
+
+export const Checkmark = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  ${InputT}:checked ~ & {
+    background-color: #222;
+
+    &:after {
+      display: block;
+    }
+  }
+
+  &:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+`;
+
+
 export const Theme = styled.div`
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 300px;
+  height: 260px;
   align-items: center;
   justify-items: center;
   align-content: center;
@@ -54,24 +121,14 @@ export const Main = styled.div`
   width: 100%;
 `;
 
-export const GuideText = styled.p`
-  color: #eee;
-  font-size: 14px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 2px 10px;
-`;
-
 export const OnlineRoomDiv = styled.div`
   justify-content: space-around;
   flex-direction: row;
   display: flex;
   width: 50%;
 
-  /* Media query para telas pequenas */
   @media (max-width: 768px) {
-    width: 100%; /* Ou qualquer outra largura desejada para telas pequenas */
+    width: 100%;
   }
 `;
 

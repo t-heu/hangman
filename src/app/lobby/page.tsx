@@ -22,7 +22,7 @@ import {
   PlayerInfo,
 } from './style'
 
-export default function Lobby({changeComponent, code, currentPlayerUID, indexTheme}: any) {
+export default function Lobby({changeComponent, code, currentPlayerUID}: any) {
   const [players, setPlayers] = useState<any>([]);
   const [playerKey, setPlayerKey] = useState<any>('');
 

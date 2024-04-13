@@ -13,7 +13,10 @@ import {
   Title,
   OnlineRoomDiv,
   Theme,
-  Container
+  Container,
+  ContainerT,
+  Checkmark,
+  InputT
 } from './style'
 
 export default function Home({changeComponent, code, currentPlayerUID, indexTheme}: any) {
@@ -174,19 +177,10 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   }
 
   const renderThemes = (item: any, index: any) => (
-    <div key={index} >
-      <label className='container' htmlFor={`theme-${index}`}>{item.name}
-      <input
-        type="radio"
-        className='theme'
-        id={`theme-${index}`}
-        value={index}
-        checked={checked === index}
-        onChange={() => setChecked(index)}
-      />
-      <span className="checkmark"></span>
-      </label>
-    </div>
+    <ContainerT key={index}>{item.name}
+      <InputT type="radio" value={index} checked={checked === index} onChange={() => setChecked(index)} />
+      <Checkmark className="checkmark" />
+    </ContainerT>
   );
 
   return (
@@ -210,7 +204,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
           <OnlineRoomDiv>
             <RoomDiv>
               <Input value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu nome' />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Code' />
+              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Código' />
               <Button text='JOGAR' press={() => play()} />
               <Title>OU</Title>
               <Button text='CRIE SUA SALA' press={() => createGame(true)} />

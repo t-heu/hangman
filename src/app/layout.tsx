@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
+import StyledComponentsRegistry from '../lib/registry'
+
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt">
       <head>
         <meta name="theme-color" content="#262632" />
         {process.env.NODE_ENV === "development" ? null : (
@@ -30,9 +32,10 @@ export default function RootLayout({
             <link rel="apple-touch-startup-image" href="/hangman/icons/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
           </>
         )}
-        
       </head>
-      <body className={`${sourceCodePro.className}`}>{children}</body>
+      <body className={`${sourceCodePro.className}`}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }

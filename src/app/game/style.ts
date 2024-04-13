@@ -9,7 +9,7 @@ export const LetterContainer = styled.div`
   justify-content: center;
   grid-template-columns: repeat(5, 0fr);
   grid-gap: 0px;
-  justify-items: center; /* Centraliza horizontalmente */
+  justify-items: center;
   align-items: center;
 `;
 
