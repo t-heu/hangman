@@ -5,10 +5,22 @@ export const Theme = styled.div`
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 275px;
+  height: 300px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 70%;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
   }
 `;
 
@@ -27,6 +39,10 @@ export const Input = styled.input`
   width: 140px;
   margin-bottom: 5px;
   background-color: #262632;
+
+  &:focus {
+    border-color: #eee;
+  }
 `;
 
 export const Main = styled.div`

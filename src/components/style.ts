@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // HeaderComp
 export const Header = styled.div`
   background: #f5f5fa;
-  padding: 27px;
+  padding: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ export const Button = styled.button`
   border-radius: 5px;
   box-shadow: 0 9px 0 green ,0 9px 25px rgba(0,0,0,.7);
   margin: 1em auto;
-  min-width: 130px;
+  min-width: 140px;
   max-width: inherit;
   text-align: center;
   cursor: pointer;

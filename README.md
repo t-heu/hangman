@@ -6,3 +6,5 @@ Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou
 
 ## Preview
 ![alt text](docs/preview.png "Title")
+![alt text](docs/preview2.png "Title")
+![alt text](docs/preview3.png "Title")

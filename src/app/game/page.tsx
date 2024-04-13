@@ -250,7 +250,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
           {status ? (
             <>
               <GuideText style={{color: '#FDE767'}}>{winnerMessage}</GuideText>
-              {!(wordName.every((char) => char !== '')) && Object.values(players).length > 1 ? (<GuideText style={{color: '#FDE767'}}>A Palavra era: {word.name}</GuideText>) : null}
+              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>A Palavra era: {word.name}</GuideText>) : null}
               <Button press={restartGame} text='JOGAR NOVAMENTE' />
               <Button press={logout} text='SAIR' />
             </>

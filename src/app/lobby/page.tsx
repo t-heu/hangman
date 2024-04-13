@@ -105,7 +105,7 @@ export default function Lobby({changeComponent, code, currentPlayerUID, indexThe
         <PlayerInfo style={{color: data.ready ? '#36AA4D' : '#e2584d'}}>{data.ready ? 'READY' : 'NOT READY'}</PlayerInfo>
       )}
     </PlayerContainer>
-  );
+  )
 
   return (
     <Main>

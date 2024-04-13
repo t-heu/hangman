@@ -1,8 +1,5 @@
 "use client";
 import { useState } from 'react';
-import { Source_Code_Pro } from "next/font/google";
-
-const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 import { database, set, ref, update, get, child, remove, push } from '../../api/firebase'
 import DataTheme from '../../data/themes.json';
@@ -15,13 +12,13 @@ import {
   Main, 
   Title,
   OnlineRoomDiv,
-  Theme
+  Theme,
+  Container
 } from './style'
 
 export default function Home({changeComponent, code, currentPlayerUID, indexTheme}: any) {
   const [checked, setChecked] = useState(1);
-  const [nameP1, setNameP1] = useState('');
-  const [nameP2, setNameP2] = useState('');
+  const [name, setName] = useState('');
   const [codeRoom, setCodeRoom] = useState('');
 
   function generateRandomWord(length: number) {
@@ -43,7 +40,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
     }
   }
 
-  function createPlayer(roomKey: string, owner: boolean) {
+  function createPlayer(roomKey: string, owner: boolean, name: string) {
     try {
       const updates: any = {};
       const playersRef = ref(database, `hangman/rooms/${roomKey}/players`);
@@ -51,7 +48,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
       const nextPlayer = newPlayerRef.key;
   
       updates[`hangman/rooms/${roomKey}/players/p${nextPlayer}`] = {
-        name: nameP1 || nameP2,
+        name,
         gameover: false,
         victory: false,
         uid: nextPlayer,
@@ -61,7 +58,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
       }
       
       update(ref(database), updates);
-      
+      code(roomKey)
       indexTheme(checked)
       currentPlayerUID(nextPlayer)
       changeComponent('Lobby')
@@ -73,9 +70,14 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   async function createGame(stauts: boolean) {
     try {
       if (stauts) {
-        if (!nameP1) {
+        if (!name) {
           return alert('Error: Insira seu nome');
         }
+
+        if (!(/^[a-zA-Z\s]*$/.test(name))) {
+          return alert('Insira nome valido!')
+        }
+
         const roomKey = generateRandomWord(6);
 
         await set(ref(database, 'hangman/rooms/' + roomKey), {
@@ -88,9 +90,8 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
         });
 
         code(roomKey)
-        createPlayer(roomKey, true);
+        createPlayer(roomKey, true, name);
       } else {
-        //router.push(`/game?indexTheme=${checked}`);
         indexTheme(checked)
         changeComponent('Game')
       }
@@ -100,14 +101,14 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   }
 
   function enterRoomCode() {
-    get(child(ref(database), 'hangman/rooms/' + code)).then((snapshot) => {
+    get(child(ref(database), 'hangman/rooms/' + codeRoom)).then((snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         const playersObject = data.players || {};
         const numPlayers = Object.keys(playersObject).length;
 
         if (!data.gameInProgress && numPlayers < 8) {
-          createPlayer(code, false)
+          createPlayer(codeRoom, false, name)
         } else {
           alert('Error: Ja foi iniciado a partida ou sala cheia')
         }
@@ -135,7 +136,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
             createGame(true);
           } else {
             if (!room.gameInProgress && numPlayers < 8) {
-              createPlayer(roomKey, false)
+              createPlayer(roomKey, false, name)
               return true
             } else {
               createGame(true);
@@ -153,13 +154,21 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
   }
 
   function play() {
-    if (code) {
-      if (!nameP2) {
-        return alert('Error: Insira seu nome');
-      }
+    if (!name) {
+      return alert('Error: Insira seu nome!');
+    }
+
+    if (!(/^[a-zA-Z\s]*$/.test(name))) {
+      return alert('Insira nome valido!')
+    }
+
+    if (!(/^[a-zA-Z\s]*$/.test(codeRoom))) {
+      return alert('Insira código valido!')
+    }
+
+    if (codeRoom) {
       enterRoomCode();
     } else {
-      // Buscar todas as salas no banco de dados
       joinRoom();
     }
   }
@@ -182,32 +191,33 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
 
   return (
     <Main>
-      <Title className={`${sourceCodePro.className}`}>Escolha seu tema favorito:</Title>
+      <Container>
+        <Main>
+          <Title>Escolha seu tema favorito:</Title>
 
-      <Theme>
-        {DataTheme.themes.map((data, i) => (
-          renderThemes(data, i)
-        ))}
-      </Theme>
+          <Theme>
+            {DataTheme.themes.map((data, i) => (
+              renderThemes(data, i)
+            ))}
+          </Theme>
 
-      <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
+          <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
+        </Main>
 
-      <Main>
-        <Title>JOGUE COM SEU COLEGA:</Title>
+        <Main>
+          <Title>JOGUE COM SEU COLEGA:</Title>
 
-        <OnlineRoomDiv>
-          <RoomDiv>
-            <Input value={nameP1} onChange={(e) => setNameP1(e.target.value)} placeholder='Seu nome' />
-            <Button text='CRIAR SALA' press={() => createGame(true)} />
-          </RoomDiv>
-
-          <RoomDiv>
-            <Input value={nameP2} onChange={(e) => setNameP2(e.target.value)} placeholder='Seu nome' />
-            <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Code' />
-            <Button text='JOGAR' press={() => play()} />
-          </RoomDiv>
-        </OnlineRoomDiv>
-      </Main>
+          <OnlineRoomDiv>
+            <RoomDiv>
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu nome' />
+              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Code' />
+              <Button text='JOGAR' press={() => play()} />
+              <Title>OU</Title>
+              <Button text='CRIE SUA SALA' press={() => createGame(true)} />
+            </RoomDiv>
+          </OnlineRoomDiv>
+        </Main>
+      </Container>
     </Main>
   );
 }
