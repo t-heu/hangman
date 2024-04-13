@@ -17,7 +17,8 @@ export const Theme = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  width: 70%;
+  width: 100%;
+  justify-content: space-around;
 
   @media (max-width: 790px) {
     flex-direction: column;
