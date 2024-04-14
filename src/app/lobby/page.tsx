@@ -22,7 +22,7 @@ import {
   PlayerInfo,
 } from './style'
 
-export default function Lobby({changeComponent, code, currentPlayerUID}: any) {
+export default function Lobby({lang, changeComponent, code, currentPlayerUID}: any) {
   const [players, setPlayers] = useState<any>([]);
   const [playerKey, setPlayerKey] = useState<any>('');
 
@@ -49,7 +49,7 @@ export default function Lobby({changeComponent, code, currentPlayerUID}: any) {
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(code);
-    alert('Copiado');
+    alert(lang.alert_1);
   };
 
   function createGame(codeRoom: string, indexTheme: number, playersData?: any) {
@@ -109,24 +109,24 @@ export default function Lobby({changeComponent, code, currentPlayerUID}: any) {
 
   return (
     <Main>
-      <Title>Aguardando mais jogadores entrar:</Title>
+      <Title>{lang.title_1}</Title>
 
       {players.map((data: any, i: number) => renderThemes(data, i))}
 
       {playerKey ? (
         <Button press={playReady} text={!players[playerKey].ready ? 'READY' : 'CANCEL'} />
       ) : null}
-      <Button press={logout} text='SAIR' />
+      <Button press={logout} text={lang.button_1} />
 
       <Main>
         {code ? (
           <>
-            <InfoCode style={{color: '#eee'}}>Clique para copiar código</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang.text_1}</InfoCode>
             <button onClick={() => copyToClipboard()} style={{display: 'flex', cursor: 'pointer',  background: 'none', border: 'none', flexDirection: 'row', alignItems: 'center'}}>
               <InfoCode style={{color: '#eee'}}>{code}</InfoCode>
               <FaRegCopy fontSize={16} color='#eee' />
             </button>
-            <InfoCode style={{color: '#eee'}}>Compartilhe código com seu colega</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang.text_2}</InfoCode>
           </>
         ) : null}
       </Main>

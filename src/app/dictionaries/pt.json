@@ -1,0 +1,39 @@
+{
+  "home": {
+    "title_1": "Escolha seu tema favorito:",
+    "title_2": "JOGUE COM SEU COLEGA:",
+    "title_3": "OU",
+    "button_1": "JOGAR OFFLINE",
+    "button_2": "JOGAR",
+    "button_3": "CRIE SUA SALA",
+    "input_1": "Seu nome",
+    "input_2": "Código",
+    "alert_1": "Error: Insira seu nome",
+    "alert_2": "Error: Insira nome valido!",
+    "alert_3": "Error: Ja foi iniciado a partida ou sala cheia!",
+    "alert_4": "Error: Insira código inválido!",
+    "alert_5": "Error: Tente novamente!"
+  },
+  "lobby": {
+    "title_1": "Aguardando mais jogadores entrar:",
+    "button_1": "SAIR",
+    "text_1": "Clique para copiar código",
+    "text_2": "Compartilhe código com seu colega",
+    "alert_1": "Copiado"
+  },
+  "game": {
+    "text_1": "Errors",
+    "text_2": "A Palavra era:",
+    "text_3_part_1": "AGUARDANDO",
+    "text_3_part_2": "JOGAR...",
+    "text_4": "Jà foi usada letra:",
+    "text_5": "Dica",
+    "button_1": "SAIR",
+    "button_2": "JOGAR NOVAMENTE",
+    "text_winner": "ganhou!",
+    "text_gameover": "VOÇES PERDERAM!",
+    "text_winner_solo": "VOCÊ GANHOU!",
+    "text_gameover_solo": "VOCÊ PERDEU!",
+    "text_status_game": "Partida encerrada: Todos os jogadores saíram da partida."
+  }
+}

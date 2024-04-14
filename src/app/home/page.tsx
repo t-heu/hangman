@@ -19,7 +19,7 @@ import {
   InputT
 } from './style'
 
-export default function Home({changeComponent, code, currentPlayerUID, indexTheme}: any) {
+export default function Home({lang, changeComponent, code, currentPlayerUID, indexTheme}: any) {
   const [checked, setChecked] = useState(1);
   const [name, setName] = useState('');
   const [codeRoom, setCodeRoom] = useState('');
@@ -74,11 +74,11 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
     try {
       if (stauts) {
         if (!name) {
-          return alert('Error: Insira seu nome');
+          return alert(lang.alert_1);
         }
 
         if (!(/^[a-zA-Z\s]*$/.test(name))) {
-          return alert('Insira nome valido!')
+          return alert(lang.alert_2)
         }
 
         const roomKey = generateRandomWord(6);
@@ -113,14 +113,14 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
         if (!data.gameInProgress && numPlayers < 8) {
           createPlayer(codeRoom, false, name)
         } else {
-          alert('Error: Ja foi iniciado a partida ou sala cheia')
+          alert(lang.alert_3)
         }
       } else {
-        alert('Error: Código inválido')
+        alert(lang.alert_4)
       }
     }).catch((error) => {
       console.error(error);
-      alert('Error: Tente novamente')
+      alert(lang.alert_5)
     });
   }
 
@@ -152,21 +152,21 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
       }
     }).catch((error) => {
       console.error(error);
-      alert('Error: Tente novamente');
+      alert(lang.alert_5);
     });
   }
 
   function play() {
     if (!name) {
-      return alert('Error: Insira seu nome!');
+      return alert(lang.alert_1);
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(name))) {
-      return alert('Insira nome valido!')
+      return alert(lang.alert_2)
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(codeRoom))) {
-      return alert('Insira código valido!')
+      return alert(lang.alert_4)
     }
 
     if (codeRoom) {
@@ -187,7 +187,7 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
     <Main>
       <Container>
         <Main>
-          <Title>Escolha seu tema favorito:</Title>
+          <Title>{lang.title_1}</Title>
 
           <Theme>
             {DataTheme.themes.map((data, i) => (
@@ -195,19 +195,19 @@ export default function Home({changeComponent, code, currentPlayerUID, indexThem
             ))}
           </Theme>
 
-          <Button text='JOGAR OFFLINE' press={() => createGame(false)} />
+          <Button text={lang.button_1} press={() => createGame(false)} />
         </Main>
 
         <Main>
-          <Title>JOGUE COM SEU COLEGA:</Title>
+          <Title>{lang.title_2}</Title>
 
           <OnlineRoomDiv>
             <RoomDiv>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu nome' />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder='Código' />
-              <Button text='JOGAR' press={() => play()} />
-              <Title>OU</Title>
-              <Button text='CRIE SUA SALA' press={() => createGame(true)} />
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang.input_1} />
+              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang.input_2} />
+              <Button text={lang.button_2} press={() => play()} />
+              <Title>{lang.title_3}</Title>
+              <Button text={lang.button_3} press={() => createGame(true)} />
             </RoomDiv>
           </OnlineRoomDiv>
         </Main>

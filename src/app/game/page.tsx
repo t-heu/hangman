@@ -26,7 +26,7 @@ interface Theme {
   dica: string;
 }
 
-export default function Game({changeComponent, code, currentPlayerUID, indexTheme}: any) {
+export default function Game({lang, changeComponent, code, currentPlayerUID, indexTheme}: any) {
   const [word, setWord] = useState<Theme>({name: '', dica: ''});
   const [wordName, setWordName] = useState<string[]>([]);
   const [selectedLetters, setSelectedLetters] = useState<string[]>([]);
@@ -69,7 +69,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
 
     if (data.players[data.turn]) {
       if (playersArray.length <= 1) {
-        handleGameEnd('Partida encerrada: Todos os jogadores saíram da partida.', data);
+        handleGameEnd(lang.text_status_game, data);
       } else {
         setTurn(data.players[data.turn].name);
       }
@@ -83,7 +83,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
     }
 
     if (anyPlayerGameOverOrVictory) {
-      handleGameEnd('VOÇES PERDERAM!', data);
+      handleGameEnd(lang.text_gameover, data);
     }
   }
 
@@ -116,7 +116,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
 
       setWordName(newWordName);
     } else {
-      setExistLetter(`Jà foi usada letra: ${letter}`)
+      setExistLetter(`${lang.text_4} ${letter}`)
     }
   };
 
@@ -137,7 +137,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
     const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
 
     if (winnerMessage) {
-      setWinnerMessage(`${winnerMessage.name} ganhou!`);
+      setWinnerMessage(`${winnerMessage.name} ${lang.text_winner}`);
     } else {
       setWinnerMessage(text);
     }
@@ -148,7 +148,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
   const handleVictory = () => {
     setExistElement(false);
     setStatus('gameover');
-    setWinnerMessage('VOCÊ GANHOU!');
+    setWinnerMessage(lang.text_winner_solo);
 
     if (code) {
       const updates: any = {};
@@ -170,7 +170,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
     if (countErrors === 5) {
       setExistElement(false);
       setStatus('gameover');
-      setWinnerMessage('VOCÊ PERDEU!');
+      setWinnerMessage(lang.text_gameover_solo);
       
       if (code) {
         const updates: any = {};
@@ -231,7 +231,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
   return (
     <Main>
       <InfoHeader>
-        <GuideText style={{color: '#e2584d'}}>Errors: {countErrors}</GuideText>
+        <GuideText style={{color: '#e2584d'}}>{lang.text_1}: {countErrors}</GuideText>
         <GuideText style={{color: '#FDE767'}}>{existLetter}</GuideText>
       </InfoHeader>
 
@@ -239,7 +239,7 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
         {wordName.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
       </LetterContainer>
 
-      <GuideText>{word.dica ? `Dica: ${word.dica}` : null}</GuideText>
+      <GuideText>{word.dica ? `${lang.text_5}: ${word.dica}` : null}</GuideText>
 
       {existElement ? (
         <LetterContainer>
@@ -250,12 +250,12 @@ export default function Game({changeComponent, code, currentPlayerUID, indexThem
           {status ? (
             <>
               <GuideText style={{color: '#FDE767'}}>{winnerMessage}</GuideText>
-              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>A Palavra era: {word.name}</GuideText>) : null}
-              <Button press={restartGame} text='JOGAR NOVAMENTE' />
-              <Button press={logout} text='SAIR' />
+              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang.text_2} {word.name}</GuideText>) : null}
+              <Button press={restartGame} text={lang.button_2} />
+              <Button press={logout} text={lang.button_1} />
             </>
           ) : (
-            <GuideText style={{color: '#FDE767'}}>AGUARDANDO {turn} JOGAR...</GuideText>
+            <GuideText style={{color: '#FDE767'}}>{lang.text_3_part_1} {turn} {lang.text_3_part_2}</GuideText>
           )}
         </>
       )}
