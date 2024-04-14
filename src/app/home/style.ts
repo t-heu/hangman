@@ -84,11 +84,16 @@ export const Theme = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  width: 100%;
+  width: 50%;
   justify-content: space-around;
+
+  @media (max-width: 1124px) {
+    width: 100%;
+  }
 
   @media (max-width: 790px) {
     flex-direction: column;
+    width: 100%;
   }
 `;
 
