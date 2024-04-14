@@ -49,7 +49,7 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(code);
-    alert(lang.alert_1);
+    alert(lang?.alert_1);
   };
 
   function createGame(codeRoom: string, indexTheme: number, playersData?: any) {
@@ -109,24 +109,24 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
 
   return (
     <Main>
-      <Title>{lang.title_1}</Title>
+      <Title>{lang?.title_1}</Title>
 
       {players.map((data: any, i: number) => renderThemes(data, i))}
 
       {playerKey ? (
         <Button press={playReady} text={!players[playerKey].ready ? 'READY' : 'CANCEL'} />
       ) : null}
-      <Button press={logout} text={lang.button_1} />
+      <Button press={logout} text={lang?.button_1} />
 
       <Main>
         {code ? (
           <>
-            <InfoCode style={{color: '#eee'}}>{lang.text_1}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang?.text_1}</InfoCode>
             <button onClick={() => copyToClipboard()} style={{display: 'flex', cursor: 'pointer',  background: 'none', border: 'none', flexDirection: 'row', alignItems: 'center'}}>
               <InfoCode style={{color: '#eee'}}>{code}</InfoCode>
               <FaRegCopy fontSize={16} color='#eee' />
             </button>
-            <InfoCode style={{color: '#eee'}}>{lang.text_2}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang?.text_2}</InfoCode>
           </>
         ) : null}
       </Main>

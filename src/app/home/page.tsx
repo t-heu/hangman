@@ -74,11 +74,11 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
     try {
       if (stauts) {
         if (!name) {
-          return alert(lang.alert_1);
+          return alert(lang?.alert_1);
         }
 
         if (!(/^[a-zA-Z\s]*$/.test(name))) {
-          return alert(lang.alert_2)
+          return alert(lang?.alert_2)
         }
 
         const roomKey = generateRandomWord(6);
@@ -113,14 +113,14 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
         if (!data.gameInProgress && numPlayers < 8) {
           createPlayer(codeRoom, false, name)
         } else {
-          alert(lang.alert_3)
+          alert(lang?.alert_3)
         }
       } else {
-        alert(lang.alert_4)
+        alert(lang?.alert_4)
       }
     }).catch((error) => {
       console.error(error);
-      alert(lang.alert_5)
+      alert(lang?.alert_5)
     });
   }
 
@@ -152,21 +152,21 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
       }
     }).catch((error) => {
       console.error(error);
-      alert(lang.alert_5);
+      alert(lang?.alert_5);
     });
   }
 
   function play() {
     if (!name) {
-      return alert(lang.alert_1);
+      return alert(lang?.alert_1);
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(name))) {
-      return alert(lang.alert_2)
+      return alert(lang?.alert_2)
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(codeRoom))) {
-      return alert(lang.alert_4)
+      return alert(lang?.alert_4)
     }
 
     if (codeRoom) {
@@ -187,7 +187,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
     <Main>
       <Container>
         <Main>
-          <Title>{lang.title_1}</Title>
+          <Title>{lang?.title_1}</Title>
 
           <Theme>
             {DataTheme.themes.map((data, i) => (
@@ -195,19 +195,19 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
             ))}
           </Theme>
 
-          <Button text={lang.button_1} press={() => createGame(false)} />
+          <Button text={lang?.button_1} press={() => createGame(false)} />
         </Main>
 
         <Main>
-          <Title>{lang.title_2}</Title>
+          <Title>{lang?.title_2}</Title>
 
           <OnlineRoomDiv>
             <RoomDiv>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang.input_1} />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang.input_2} />
-              <Button text={lang.button_2} press={() => play()} />
-              <Title>{lang.title_3}</Title>
-              <Button text={lang.button_3} press={() => createGame(true)} />
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang?.input_1} />
+              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang?.input_2} />
+              <Button text={lang?.button_2} press={() => play()} />
+              <Title>{lang?.title_3}</Title>
+              <Button text={lang?.button_3} press={() => createGame(true)} />
             </RoomDiv>
           </OnlineRoomDiv>
         </Main>

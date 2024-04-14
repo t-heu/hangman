@@ -15,11 +15,11 @@ export default function Page() {
   const [lang, setLang] = useState<any>({});
 
   useEffect(() => {
-    async function fetchLocale() {
+    function fetchLocale() {
       const language = navigator.language;
-      const dict = await getDictionary(language === 'pt-BR' || language === 'pt' || language === 'pt-PT' ? 'pt' : 'en');
+      const dict = getDictionary(language === 'pt-BR' || language === 'pt' || language === 'pt-PT' ? 'pt' : 'en');
       setLang(dict);
-      setComponentToRender('Home')
+      setComponentToRender("Home")
     }
     fetchLocale();
   }, []);

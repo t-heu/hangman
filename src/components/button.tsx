@@ -1,4 +1,4 @@
-import {Button} from './style'
+import {ButtonGreen, ButtonRed} from './style'
 
 interface PropsButton {
   text: string;
@@ -7,8 +7,12 @@ interface PropsButton {
 
 export default function ButtonComp({text, press}: PropsButton) {
   return (
-    <Button style={text != 'SAIR' ?  {} : {backgroundColor: '#e2584d', borderColor: '#e2584d', boxShadow: '0 9px 0 #ab473f ,0 9px 25px rgba(0,0,0,.7)'}} onClick={() => press()}>
-      {text}
-    </Button>
+    <>
+      {text != 'SAIR' && text != 'EXIT' ? (
+        <ButtonGreen onClick={() => press()}>{text}</ButtonGreen>
+      ) : (
+        <ButtonRed onClick={() => press()}>{text}</ButtonRed>
+      )}
+    </>
   )
 }

@@ -1,7 +1,19 @@
+import en from './dictionaries/en.json';
+import pt from './dictionaries/pt.json';
 
-const dictionaries: any = {
-  en: () => import('./dictionaries/en.json').then((module) => module.default),
-  pt: () => import('./dictionaries/pt.json').then((module) => module.default),
+interface LanguageDictionary {
+  [key: string]: {
+    [key: string]: string;
+  }
+}
+
+interface LanguageDictionaries {
+  [key: string]: () => LanguageDictionary;
+}
+
+const dictionaries: LanguageDictionaries = {
+  en: () => en,
+  pt: () => pt,
 }
  
-export const getDictionary = async (locale: string) => dictionaries[locale]();
+export const getDictionary = (locale: string) => dictionaries[locale]();

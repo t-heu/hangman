@@ -25,7 +25,7 @@ export const FontSmall = styled.p`
   font-weight: bold;
 `;
 
-export const Button = styled.button`
+export const ButtonGreen = styled.button`
   position: relative;
   color: rgba(255,255,255,1);
   font-family: inherit;
@@ -52,5 +52,15 @@ export const Button = styled.button`
 
   &:active, &:hover{
     box-shadow: green 1px 1px 0 1px;
+  }
+`;
+
+export const ButtonRed = styled(ButtonGreen)`
+  background-color: #e2584d;
+  border-color: #e2584d;
+  box-shadow: 0 9px 0 #ab473f ,0 9px 25px rgba(0,0,0,.7);
+  
+  &:active, &:hover{
+    box-shadow: #ab473f 1px 1px 0 1px;
   }
 `;
