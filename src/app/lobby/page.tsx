@@ -26,30 +26,18 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
   const [players, setPlayers] = useState<any>([]);
   const [playerKey, setPlayerKey] = useState<any>('');
 
-  /*function handleBackButtonClick() {
-    Alert.alert(
-      'Tem certeza?',
-      'Se você sair da partida, vai perder sua posição!',
-      [
-        { text: "Cancelar", style: 'cancel', onPress: () => {} },
-        { text: 'Continuar', style: 'destructive',
-          onPress: () => {
-            exitPlayer(code, currentPlayerUID as number)
-            changeComponent('Home')
-          },
-        },
-      ]
-    );
-    return true;
-  }*/
-
   useEffect(() => {
+    console.info('Monitorando status da conexão', { code, currentPlayerUID });
     monitorConnectionStatus(code, currentPlayerUID)
   }, [code, currentPlayerUID]);
 
   const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(code);
-    alert(lang?.alert_1);
+    try {
+      await navigator.clipboard.writeText(code);
+      alert(lang?.copied_alert);
+    } catch (error) {
+      console.error('Erro ao copiar o código da sala para a área de transferência:', error); // Registro de erro com detalhes
+    }
   };
 
   function createGame(codeRoom: string, indexTheme: number, playersData?: any) {
@@ -109,24 +97,24 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
 
   return (
     <Main>
-      <Title>{lang?.title_1}</Title>
+      <Title>{lang?.waiting_title}</Title>
 
       {players.map((data: any, i: number) => renderThemes(data, i))}
 
       {playerKey ? (
         <Button press={playReady} text={!players[playerKey].ready ? 'READY' : 'CANCEL'} />
       ) : null}
-      <Button press={logout} text={lang?.button_1} />
+      <Button press={logout} text={lang?.exit_button} />
 
       <Main>
         {code ? (
           <>
-            <InfoCode style={{color: '#eee'}}>{lang?.text_1}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang?.errors_text}</InfoCode>
             <button onClick={() => copyToClipboard()} style={{display: 'flex', cursor: 'pointer',  background: 'none', border: 'none', flexDirection: 'row', alignItems: 'center'}}>
               <InfoCode style={{color: '#eee'}}>{code}</InfoCode>
               <FaRegCopy fontSize={16} color='#eee' />
             </button>
-            <InfoCode style={{color: '#eee'}}>{lang?.text_2}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang?.word_text}</InfoCode>
           </>
         ) : null}
       </Main>

@@ -69,7 +69,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
     if (data.players[data.turn]) {
       if (playersArray.length <= 1) {
-        handleGameEnd(lang?.text_status_game, data);
+        handleGameEnd(lang?.game_status_text, data);
       } else {
         setTurn(data.players[data.turn].name);
       }
@@ -83,7 +83,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
 
     if (anyPlayerGameOverOrVictory) {
-      handleGameEnd(lang?.text_gameover, data);
+      handleGameEnd(lang?.game_over_text, data);
     }
   }
 
@@ -116,7 +116,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
       setWordName(newWordName);
     } else {
-      setExistLetter(`${lang?.text_4} ${letter}`)
+      setExistLetter(`${lang?.letter_already_used_text} ${letter}`)
     }
   };
 
@@ -137,7 +137,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
 
     if (winnerMessage) {
-      setWinnerMessage(`${winnerMessage.name} ${lang?.text_winner}`);
+      setWinnerMessage(`${winnerMessage.name} ${lang?.winner_text}`);
     } else {
       setWinnerMessage(text);
     }
@@ -148,7 +148,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const handleVictory = () => {
     setExistElement(false);
     setStatus('gameover');
-    setWinnerMessage(lang?.text_winner_solo);
+    setWinnerMessage(lang?.winner_solo_text);
 
     if (code) {
       const updates: any = {};
@@ -170,7 +170,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     if (countErrors === 5) {
       setExistElement(false);
       setStatus('gameover');
-      setWinnerMessage(lang?.text_gameover_solo);
+      setWinnerMessage(lang?.game_over_solo_text);
       
       if (code) {
         const updates: any = {};
@@ -231,7 +231,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   return (
     <Main>
       <InfoHeader>
-        <GuideText style={{color: '#e2584d'}}>{lang?.text_1}: {countErrors}</GuideText>
+        <GuideText style={{color: '#e2584d'}}>{lang?.errors_text}: {countErrors}</GuideText>
         <GuideText style={{color: '#FDE767'}}>{existLetter}</GuideText>
       </InfoHeader>
 
@@ -239,7 +239,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
         {wordName.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
       </LetterContainer>
 
-      <GuideText>{word.dica ? `${lang?.text_5}: ${word.dica}` : null}</GuideText>
+      <GuideText>{word.dica ? `${lang?.tip_text}: ${word.dica}` : null}</GuideText>
 
       {existElement ? (
         <LetterContainer>
@@ -250,12 +250,12 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
           {status ? (
             <>
               <GuideText style={{color: '#FDE767'}}>{winnerMessage}</GuideText>
-              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang?.text_2} {word.name}</GuideText>) : null}
-              <Button press={restartGame} text={lang?.button_2} />
-              <Button press={logout} text={lang?.button_1} />
+              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang?.word_text} {word.name}</GuideText>) : null}
+              <Button press={restartGame} text={lang?.play_again_button} />
+              <Button press={logout} text={lang?.exit_button} />
             </>
           ) : (
-            <GuideText style={{color: '#FDE767'}}>{lang?.text_3_part_1} {turn} {lang?.text_3_part_2}</GuideText>
+            <GuideText style={{color: '#FDE767'}}>{lang?.waiting_to_play_text_part_1} {turn} {lang?.waiting_to_play_text_part_2}</GuideText>
           )}
         </>
       )}
