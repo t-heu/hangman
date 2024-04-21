@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {ButtonGreen, ButtonRed} from './style'
 
 interface PropsButton {

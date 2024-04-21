@@ -1,5 +1,5 @@
 "use client";
-import { useState, Dispatch, SetStateAction } from 'react';
+import React, {useState} from 'react';
 
 import { database, set, ref, update, get, child, push } from '../../api/firebase'
 import DataTheme from '../../data/themes.json';
@@ -181,7 +181,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
 
   const renderThemes = (item: any, index: any) => (
     <ContainerT key={index}>{item.name}
-      <InputT type="radio" value={index} checked={checked === index} onChange={() => setChecked(index)} />
+      <InputT data-testid={'checked_id_'+index} type="radio" value={index} checked={checked === index} onChange={() => setChecked(index)} />
       <Checkmark className="checkmark" />
     </ContainerT>
   );
@@ -206,8 +206,8 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
 
           <OnlineRoomDiv>
             <RoomDiv>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang.your_name_input} />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang.code_input} />
+              <Input data-testid="name_id" value={name} onChange={(e) => setName(e.target.value)} placeholder={lang.your_name_input} />
+              <Input data-testid="code_id" value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang.code_input} />
               <Button text={lang.play_again_button} press={() => play()} />
               <Title>{lang.or_title}</Title>
               <Button text={lang.create_room_button} press={() => createGame(true)} />
