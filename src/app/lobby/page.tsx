@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { FaRegCopy } from "react-icons/fa6";
 
 import { database, ref, update, onValue } from '../../api/firebase'
-
+import {ILobby} from "../../interfaces";
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';
@@ -34,7 +34,7 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      alert(lang?.copied_alert);
+      alert(lang.copied_alert);
     } catch (error) {
       console.error('Erro ao copiar o código da sala para a área de transferência:', error); // Registro de erro com detalhes
     }
@@ -81,8 +81,12 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
   }, []);
 
   const logout = () => {
-    exitPlayer(code, currentPlayerUID as number)
+    exitPlayer(code, currentPlayerUID)
     changeComponent('Home');
+  }
+
+  if (!lang) {
+    return null
   }
 
   const renderThemes = (data: any, index: number) => (
@@ -97,24 +101,24 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
 
   return (
     <Main>
-      <Title>{lang?.waiting_title}</Title>
+      <Title>{lang.waiting_title}</Title>
 
       {players.map((data: any, i: number) => renderThemes(data, i))}
 
       {playerKey ? (
         <Button press={playReady} text={!players[playerKey].ready ? 'READY' : 'CANCEL'} />
       ) : null}
-      <Button press={logout} text={lang?.exit_button} />
+      <Button press={logout} text={lang.exit_button} />
 
       <Main>
         {code ? (
           <>
-            <InfoCode style={{color: '#eee'}}>{lang?.errors_text}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang.errors_text}</InfoCode>
             <button onClick={() => copyToClipboard()} style={{display: 'flex', cursor: 'pointer',  background: 'none', border: 'none', flexDirection: 'row', alignItems: 'center'}}>
               <InfoCode style={{color: '#eee'}}>{code}</InfoCode>
               <FaRegCopy fontSize={16} color='#eee' />
             </button>
-            <InfoCode style={{color: '#eee'}}>{lang?.word_text}</InfoCode>
+            <InfoCode style={{color: '#eee'}}>{lang.word_text}</InfoCode>
           </>
         ) : null}
       </Main>

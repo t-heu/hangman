@@ -1,7 +1,7 @@
 "use client";
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
-import { database, set, ref, update, get, child, remove, push } from '../../api/firebase'
+import { database, set, ref, update, get, child, push } from '../../api/firebase'
 import DataTheme from '../../data/themes.json';
 
 import Button from '../../components/button'
@@ -18,6 +18,7 @@ import {
   Checkmark,
   InputT
 } from './style'
+import {IHome} from "../../interfaces";
 
 export default function Home({lang, changeComponent, code, currentPlayerUID, indexTheme}: any) {
   const [checked, setChecked] = useState(1);
@@ -32,15 +33,6 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
       randomWord += characters.charAt(randomIndex);
     }
     return randomWord;
-  }
-
-  async function deleteRoom(roomCode: string) {
-    try {
-      await remove(ref(database, `hangman/rooms/${roomCode}`));
-      console.info(`Sala ${roomCode} excluída com sucesso`);
-    } catch (error: any) {
-      console.error(`Erro ao excluir a sala ${roomCode}: ${error.message}`);
-    }
   }
 
   function createPlayer(roomKey: string, owner: boolean, name: string) {
@@ -59,12 +51,14 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
         ready: false,
         owner,
       }
-      
-      update(ref(database), updates);
-      code(roomKey)
-      indexTheme(checked)
-      currentPlayerUID(nextPlayer)
-      changeComponent('Lobby')
+
+      if (nextPlayer) {
+        update(ref(database), updates);
+        code(roomKey)
+        indexTheme(checked)
+        currentPlayerUID(nextPlayer)
+        changeComponent('Lobby')
+      }
     } catch (error) {
       console.error('Erro ao criar jogador:', error);
     }
@@ -75,12 +69,12 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
       if (stauts) {
         if (!name) {
           console.error('Erro ao criar jogo: Nome do jogador não fornecido');
-          return alert(lang?.copied_alert);
+          return alert(lang.copied_alert);
         }
 
         if (!(/^[a-zA-Z\s]*$/.test(name))) {
           console.error('Erro ao criar jogo: Nome do jogador inválido');
-          return alert(lang?.invalid_copied_alert)
+          return alert(lang.invalid_copied_alert)
         }
 
         const roomKey = generateRandomWord(6);
@@ -118,15 +112,15 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
           createPlayer(codeRoom, false, name)
         } else {
           console.warn(`Tentativa de entrada na sala ${codeRoom} falhou: sala cheia ou partida em andamento`);
-          alert(lang?.game_started_error_alert)
+          alert(lang.game_started_error_alert)
         }
       } else {
         console.warn(`Tentativa de entrada na sala ${codeRoom} falhou: sala inexistente`);
-        alert(lang?.invalid_code_error_alert)
+        alert(lang.invalid_code_error_alert)
       }
     }).catch((error) => {
       console.error(`Erro ao verificar a sala ${codeRoom}: ${error.message}`);
-      alert(lang?.try_again_error_alert)
+      alert(lang.try_again_error_alert)
     });
   }
 
@@ -141,9 +135,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
           const playersObject = room.players || {};
           const numPlayers = Object.keys(playersObject).length;
   
-          if (numPlayers === 0) {
-            deleteRoom(roomKey);
-          } else if (!room.gameInProgress && numPlayers < 8) {
+          if (!room.gameInProgress && numPlayers < 8) {
             createPlayer(roomKey, false, name);
             foundRoom = true;
             return true;
@@ -159,21 +151,21 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
       }
     }).catch((error) => {
       console.error(`Erro ao verificar as salas: ${error.message}`);
-      alert(lang?.try_again_error_alert);
+      alert(lang.try_again_error_alert);
     });
   }
 
   function play() {
     if (!name) {
-      return alert(lang?.copied_alert);
+      return alert(lang.copied_alert);
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(name))) {
-      return alert(lang?.invalid_copied_alert)
+      return alert(lang.invalid_copied_alert)
     }
 
     if (!(/^[a-zA-Z\s]*$/.test(codeRoom))) {
-      return alert(lang?.invalid_code_error_alert)
+      return alert(lang.invalid_code_error_alert)
     }
 
     if (codeRoom) {
@@ -181,6 +173,10 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
     } else {
       joinRoom();
     }
+  }
+
+  if (!lang) {
+    return null
   }
 
   const renderThemes = (item: any, index: any) => (
@@ -194,7 +190,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
     <Main>
       <Container>
         <Main>
-          <Title>{lang?.waiting_title}</Title>
+          <Title>{lang && lang.waiting_title}</Title>
 
           <Theme>
             {DataTheme.themes.map((data, i) => (
@@ -202,19 +198,19 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
             ))}
           </Theme>
 
-          <Button text={lang?.exit_button} press={() => createGame(false)} />
+          <Button text={lang.exit_button} press={() => createGame(false)} />
         </Main>
 
         <Main>
-          <Title>{lang?.play_with_friends_title}</Title>
+          <Title>{lang.play_with_friends_title}</Title>
 
           <OnlineRoomDiv>
             <RoomDiv>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang?.your_name_input} />
-              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang?.code_input} />
-              <Button text={lang?.play_again_button} press={() => play()} />
-              <Title>{lang?.or_title}</Title>
-              <Button text={lang?.create_room_button} press={() => createGame(true)} />
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={lang.your_name_input} />
+              <Input value={codeRoom} onChange={(e) => setCodeRoom(e.target.value)} placeholder={lang.code_input} />
+              <Button text={lang.play_again_button} press={() => play()} />
+              <Title>{lang.or_title}</Title>
+              <Button text={lang.create_room_button} press={() => createGame(true)} />
             </RoomDiv>
           </OnlineRoomDiv>
         </Main>

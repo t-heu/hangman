@@ -12,8 +12,10 @@ interface LanguageDictionaries {
 }
 
 const dictionaries: LanguageDictionaries = {
-  en: () => en,
-  pt: () => pt,
+  "en": () => en,
+  "pt": () => pt,
+  "pt-br": () => pt,
+  "pt-pt": () => pt
 }
  
 export const getDictionary = (locale: string) => dictionaries[locale]();

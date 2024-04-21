@@ -1,12 +1,10 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { database, ref, update, onValue } from '../../api/firebase'
-
 import {
   Main,
 } from '../style';
-
 import {
   InfoHeader,
   GuideText,
@@ -14,12 +12,11 @@ import {
   CharacterDisplay,
   LetterText
 } from './style';
-
 import Button from '../../components/button';
-
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';
+import {IGame} from "../../interfaces";
 
 interface Theme {
   name: string;
@@ -37,16 +34,6 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const [players, setPlayers] = useState<any>({});
   const [winnerMessage, setWinnerMessage] = useState('');
   const [turn, setTurn] = useState('');
-
-  useEffect(() => {
-    if (code) {
-      const roomRef = ref(database, 'hangman/rooms/' + code);
-      onValue(roomRef, handleRoomData);
-      monitorConnectionStatus(code, currentPlayerUID)
-    } else {
-      initializeGame();
-    }
-  }, []);
 
   function handleRoomData(snapshot: any) {
     const data = snapshot.val();
@@ -69,7 +56,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
     if (data.players[data.turn]) {
       if (playersArray.length <= 1) {
-        handleGameEnd(lang?.game_status_text, data);
+        handleGameEnd(lang.game_status_text, data);
       } else {
         setTurn(data.players[data.turn].name);
       }
@@ -83,7 +70,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
 
     if (anyPlayerGameOverOrVictory) {
-      handleGameEnd(lang?.game_over_text, data);
+      handleGameEnd(lang.game_over_text, data);
     }
   }
 
@@ -116,7 +103,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
       setWordName(newWordName);
     } else {
-      setExistLetter(`${lang?.letter_already_used_text} ${letter}`)
+      setExistLetter(`${lang.letter_already_used_text} ${letter}`)
     }
   };
 
@@ -137,7 +124,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
 
     if (winnerMessage) {
-      setWinnerMessage(`${winnerMessage.name} ${lang?.winner_text}`);
+      setWinnerMessage(`${winnerMessage.name} ${lang.winner_text}`);
     } else {
       setWinnerMessage(text);
     }
@@ -148,7 +135,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const handleVictory = () => {
     setExistElement(false);
     setStatus('gameover');
-    setWinnerMessage(lang?.winner_solo_text);
+    setWinnerMessage(lang.winner_solo_text);
 
     if (code) {
       const updates: any = {};
@@ -170,7 +157,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     if (countErrors === 5) {
       setExistElement(false);
       setStatus('gameover');
-      setWinnerMessage(lang?.game_over_solo_text);
+      setWinnerMessage(lang.game_over_solo_text);
       
       if (code) {
         const updates: any = {};
@@ -201,7 +188,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
   }
 
-  function initializeGame() {
+  const initializeGame = useCallback(() => {
     const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
 
     setExistElement(true);
@@ -211,11 +198,25 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     setCountErrors(0);
     setExistLetter('');
     setStatus('');
-  }
+  }, [indexTheme])
 
   const logout = () => {
     if (code) exitPlayer(code, currentPlayerUID)
     changeComponent('Home')
+  }
+
+  useEffect(() => {
+    if (code) {
+      const roomRef = ref(database, 'hangman/rooms/' + code);
+      onValue(roomRef, handleRoomData);
+      monitorConnectionStatus(code, currentPlayerUID)
+    } else {
+      initializeGame();
+    }
+  }, []);
+
+  if (!lang) {
+    return null
   }
 
   const RenderItemLetters = ({ item, index, aa }: any) => {
@@ -231,7 +232,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   return (
     <Main>
       <InfoHeader>
-        <GuideText style={{color: '#e2584d'}}>{lang?.errors_text}: {countErrors}</GuideText>
+        <GuideText style={{color: '#e2584d'}}>{lang.errors_text}: {countErrors}</GuideText>
         <GuideText style={{color: '#FDE767'}}>{existLetter}</GuideText>
       </InfoHeader>
 
@@ -239,7 +240,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
         {wordName.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
       </LetterContainer>
 
-      <GuideText>{word.dica ? `${lang?.tip_text}: ${word.dica}` : null}</GuideText>
+      <GuideText>{word.dica ? `${lang.tip_text}: ${word.dica}` : null}</GuideText>
 
       {existElement ? (
         <LetterContainer>
@@ -250,12 +251,12 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
           {status ? (
             <>
               <GuideText style={{color: '#FDE767'}}>{winnerMessage}</GuideText>
-              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang?.word_text} {word.name}</GuideText>) : null}
-              <Button press={restartGame} text={lang?.play_again_button} />
-              <Button press={logout} text={lang?.exit_button} />
+              {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang.word_text} {word.name}</GuideText>) : null}
+              <Button press={restartGame} text={lang.play_again_button} />
+              <Button press={logout} text={lang.exit_button} />
             </>
           ) : (
-            <GuideText style={{color: '#FDE767'}}>{lang?.waiting_to_play_text_part_1} {turn} {lang?.waiting_to_play_text_part_2}</GuideText>
+            <GuideText style={{color: '#FDE767'}}>{lang.waiting_to_play_text_part_1} {turn} {lang.waiting_to_play_text_part_2}</GuideText>
           )}
         </>
       )}

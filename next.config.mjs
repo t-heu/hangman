@@ -12,7 +12,7 @@ const nextConfigFromPWA = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
-  basePath: '/hangman',
+  basePath: process.env.B_DEV ? "/out" : '/hangman',
   compiler: {
     styledComponents: true,
   }
