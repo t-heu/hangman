@@ -16,7 +16,6 @@ import Button from '../../components/button';
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';
-import {IGame} from "../../interfaces";
 
 interface Theme {
   name: string;

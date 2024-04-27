@@ -1,0 +1,85 @@
+{
+  "name": "Super-heróis",
+  "words": [
+    {
+      "name": "SUPERMAN",
+      "dica": "O Último Filho de Krypton, com poderes sobre-humanos e identidade secreta como repórter, Clark Kent"
+    },
+    {
+      "name": "BATMAN",
+      "dica": "O Cavaleiro das Trevas, um vigilante com uma identidade secreta, Bruce Wayne, e uma sede de justiça"
+    },
+    {
+      "name": "SPIDERMAN",
+      "dica": "O Amigo da Vizinhança, com habilidades de aranha após ser picado por uma aranha radioativa, identidade secreta de Peter Parker"
+    },
+    {
+      "name": "THOR",
+      "dica": "O Deus do Trovão, um príncipe asgardiano com um martelo mágico, identidade secreta de Thor Odinson"
+    },
+    {
+      "name": "WOLVERINE",
+      "dica": "O X-Man com garras retráteis e um fator de cura acelerado, identidade secreta de Logan"
+    },
+    {
+      "name": "HULK",
+      "dica": "O Gigante Esmeralda, um cientista transformado em monstro verde pela radiação gama, identidade secreta de Bruce Banner"
+    },
+    {
+      "name": "FLASH",
+      "dica": "O Velocista Escarlate, com super velocidade e uma identidade secreta como Barry Allen"
+    },
+    {
+      "name": "AQUAMAN",
+      "dica": "O Rei dos Mares, com habilidades aquáticas e uma identidade secreta como Arthur Curry"
+    },
+    {
+      "name": "CYBORG",
+      "dica": "Meio-humano, meio-máquina, com habilidades tecnológicas e uma identidade secreta como Victor Stone"
+    },
+    {
+      "name": "ANTMAN",
+      "dica": "Um herói capaz de encolher de tamanho e controlar formigas, identidade secreta de Scott Lang ou Hank Pym"
+    },
+    {
+      "name": "ROGUE",
+      "dica": "Uma mutante com o poder de absorver as habilidades e memórias de outros, identidade secreta de Anna Marie"
+    },
+    {
+      "name": "DAREDEVIL",
+      "dica": "O Homem sem Medo, um advogado cego com sentidos ampliados, identidade secreta de Matt Murdock"
+    },
+    {
+      "name": "STORM",
+      "dica": "A Rainha dos Elementos, com poderes de manipulação do clima, identidade secreta de Ororo Munroe"
+    },
+    {
+      "name": "BATGIRL",
+      "dica": "A Aliada do Cavaleiro das Trevas, identidade secreta de Barbara Gordon"
+    },
+    {
+      "name": "SUPERGIRL",
+      "dica": "A Prima do Homem de Aço, com poderes similares ao Superman, identidade secreta de Kara Zor-El"
+    },
+    {
+      "name": "HELLBOY",
+      "dica": "Um demônio com um coração humano, lutando contra forças sobrenaturais, identidade secreta de Anung Un Rama"
+    },
+    {
+      "name": "SHAZAM",
+      "dica": "O Campeão do Mago, com poderes mágicos e identidade secreta de Billy Batson"
+    },
+    {
+      "name": "SUPERGIRL",
+      "dica": "A Prima do Homem de Aço, com poderes similares ao Superman, identidade secreta de Kara Zor-El"
+    },
+    {
+      "name": "AQUAMAN",
+      "dica": "O Rei dos Mares, com habilidades aquáticas e uma identidade secreta como Arthur Curry"
+    },
+    {
+      "name": "VISION",
+      "dica": "Um androide com poderes sobre-humanos, memórias humanas e uma gem na testa, identidade secreta de Vision"
+    }
+  ]
+}

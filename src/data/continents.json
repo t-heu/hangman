@@ -1,0 +1,37 @@
+{
+  "name": "Continentes",
+  "words": [
+    {
+      "name": "AFRICA",
+      "dica": "O segundo maior continente do mundo em área e população, conhecido por sua diversidade cultural e geográfica"
+    },
+    {
+      "name": "AMERICA",
+      "dica": "O continente mais extenso do mundo, composto por América do Norte, América Central, América do Sul e Caribe"
+    },
+    {
+      "name": "EUROPA",
+      "dica": "O continente mais densamente povoado do mundo, conhecido por sua história, cultura e diversidade linguística"
+    },
+    {
+      "name": "ASIA",
+      "dica": "O maior continente do mundo em área e população, conhecido por sua vasta diversidade étnica, cultural e geográfica"
+    },
+    {
+      "name": "OCEANIA",
+      "dica": "O menor continente do mundo em área, composto por ilhas e países insulares no Oceano Pacífico"
+    },
+    {
+      "name": "ANTARTIDA",
+      "dica": "O continente mais frio, seco e ventoso da Terra, coberto por uma camada de gelo que contém 90% do gelo do planeta"
+    },
+    {
+      "name": "OCEANIA",
+      "dica": "O menor continente do mundo em área, composto por ilhas e países insulares no Oceano Pacífico"
+    },
+    {
+      "name": "ANTARTIDA",
+      "dica": "O continente mais frio, seco e ventoso da Terra, coberto por uma camada de gelo que contém 90% do gelo do planeta"
+    }
+  ]
+}

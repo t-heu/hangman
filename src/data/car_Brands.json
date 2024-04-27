@@ -1,0 +1,77 @@
+{
+  "name": "Marcas de Carro",
+  "words": [
+    {
+      "name": "FERRARI",
+      "dica": "Marca italiana de carros esportivos de luxo"
+    },
+    {
+      "name": "MERCEDES",
+      "dica": "Marca alemã de carros de luxo, conhecida pela qualidade e inovação"
+    },
+    {
+      "name": "PORSCHE",
+      "dica": "Marca alemã de carros esportivos, conhecida por seu design icônico"
+    },
+    {
+      "name": "FORD",
+      "dica": "Marca americana de carros, uma das mais antigas e renomadas do mundo"
+    },
+    {
+      "name": "CHEVROLET",
+      "dica": "Marca americana de carros, conhecida por uma ampla gama de modelos"
+    },
+    {
+      "name": "TOYOTA",
+      "dica": "Marca japonesa de carros, conhecida pela confiabilidade e eficiência"
+    },
+    {
+      "name": "HONDA",
+      "dica": "Marca japonesa de carros e motocicletas, reconhecida pela qualidade e inovação"
+    },
+    {
+      "name": "BMW",
+      "dica": "Marca alemã de carros de luxo e motocicletas, conhecida pelo desempenho e design elegante"
+    },
+    {
+      "name": "AUDI",
+      "dica": "Marca alemã de carros de luxo, reconhecida pelo design sofisticado e tecnologia avançada"
+    },
+    {
+      "name": "NISSAN",
+      "dica": "Marca japonesa de carros, conhecida por uma ampla gama de veículos"
+    },
+    {
+      "name": "VOLKSWAGEN",
+      "dica": "Marca alemã de carros, uma das maiores fabricantes do mundo"
+    },
+    {
+      "name": "JEEP",
+      "dica": "Marca americana de veículos todo-terreno, conhecida pela robustez e capacidade off-road"
+    },
+    {
+      "name": "RENAULT",
+      "dica": "Marca francesa de carros, uma das mais antigas e influentes do mundo"
+    },
+    {
+      "name": "HYUNDAI",
+      "dica": "Marca sul-coreana de carros, conhecida pela variedade de modelos e boa relação custo-benefício"
+    },
+    {
+      "name": "SUBARU",
+      "dica": "Marca japonesa de carros, conhecida por seus veículos tração integral e durabilidade"
+    },
+    {
+      "name": "MASERATI",
+      "dica": "Marca italiana de carros esportivos de luxo, conhecida pelo desempenho e elegância"
+    },
+    {
+      "name": "LAMBORGHINI",
+      "dica": "Marca italiana de carros esportivos de luxo, conhecida por sua velocidade e design arrojado"
+    },
+    {
+      "name": "MAZDA",
+      "dica": "Marca japonesa de carros, reconhecida pela inovação e design dinâmico"
+    }
+  ]
+}

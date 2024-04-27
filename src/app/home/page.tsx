@@ -1,8 +1,8 @@
 "use client";
 import React, {useState} from 'react';
 
-import { database, set, ref, update, get, child, push } from '../../api/firebase'
-import DataTheme from '../../data/themes.json';
+import { database, set, ref, update, get, child, push } from '../../api/firebase';
+import {getthemes} from '../../data';
 
 import Button from '../../components/button'
 
@@ -180,7 +180,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
   }
 
   const renderThemes = (item: any, index: any) => (
-    <ContainerT key={index}>{item.name}
+    <ContainerT key={index}>{item[index].name}
       <InputT data-testid={'checked_id_'+index} type="radio" value={index} checked={checked === index} onChange={() => setChecked(index)} />
       <Checkmark className="checkmark" />
     </ContainerT>
@@ -190,10 +190,10 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
     <Main>
       <Container>
         <Main>
-          <Title>{lang && lang.waiting_title}</Title>
+          <Title>{lang.waiting_title}</Title>
 
           <Theme>
-            {DataTheme.themes.map((data, i) => (
+            {getthemes().themes.map((data, i) => (
               renderThemes(data, i)
             ))}
           </Theme>

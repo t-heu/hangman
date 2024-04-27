@@ -1,9 +1,8 @@
 "use client";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaRegCopy } from "react-icons/fa6";
 
 import { database, ref, update, onValue } from '../../api/firebase'
-import {ILobby} from "../../interfaces";
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';

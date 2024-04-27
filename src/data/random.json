@@ -1,0 +1,201 @@
+{
+  "name": "Aleatório",
+  "words": [
+    {
+      "name": "EXTRAVAGANTE",
+      "dica": "Que chama a atenção pela extravagância ou excentricidade."
+    },
+    {
+      "name": "PARALELEPIPEDO",
+      "dica": "Sólido geométrico com seis faces retangulares, cujas faces opostas são paralelas e congruentes."
+    },
+    {
+      "name": "INCOMPREENSIVEL",
+      "dica": "Que não pode ser entendido ou compreendido facilmente."
+    },
+    {
+      "name": "DETERMINACAO",
+      "dica": "Vontade firme e perseverante para alcançar um objetivo."
+    },
+    {
+      "name": "ESQUECIMENTO",
+      "dica": "Ato ou efeito de esquecer; perda da memória."
+    },
+    {
+      "name": "AVENTUREIRO",
+      "dica": "Indivíduo que busca aventuras ou se arrisca em novas empreitadas."
+    },
+    {
+      "name": "SUSPENSAO",
+      "dica": "Ato ou efeito de suspender; interrupção temporária."
+    },
+    {
+      "name": "INDEPENDENTE",
+      "dica": "Que não depende de algo ou alguém para existir ou agir."
+    },
+    {
+      "name": "FUNDAMENTAL",
+      "dica": "Essencial; básico; que serve de base ou fundamento."
+    },
+    {
+      "name": "DESENVOLVIMENTO",
+      "dica": "Processo de crescimento, evolução ou progresso."
+    },
+    {
+      "name": "ELETROENCEFALOGRAFISTA",
+      "dica": "Profissional médico especializado em realizar e interpretar exames de eletroencefalografia."
+    },
+    {
+      "name": "HIPERCALCAREAMENTO",
+      "dica": "Excesso de cálcio no sangue ou nos tecidos do corpo."
+    },
+    {
+      "name": "PSICOSSOMATIZACAO",
+      "dica": "Processo pelo qual problemas emocionais se manifestam fisicamente."
+    },
+    {
+      "name": "ULTRAMICROSCOPICAMENTE",
+      "dica": "De maneira ultramicroscópica; em uma escala extremamente pequena."
+    },
+    {
+      "name": "DESINSTITUCIONALIZACAO",
+      "dica": "Processo de retirada de pessoas de instituições, como hospitais psiquiátricos, para reintegrá-las à comunidade."
+    },
+    {
+      "name": "IMUNOSSUPRESSOR",
+      "dica": "Substância que suprime ou diminui a atividade do sistema imunológico."
+    },
+    {
+      "name": "MICROSCOPIOSCOPIA",
+      "dica": "Estudo ou técnica que utiliza microscópios para observar estruturas muito pequenas."
+    },
+    {
+      "name": "ANTICONSTITUCIONALIDADE",
+      "dica": "Qualidade ou caráter do que é contrário à constituição."
+    },
+    {
+      "name": "PARASSIMPATICOMIMETICO",
+      "dica": "Substância que mimetiza ou imita a ação do sistema nervoso parassimpático."
+    },
+    {
+      "name": "POLITICAMENTE",
+      "dica": "De maneira política; conforme os interesses políticos ou de acordo com considerações políticas."
+    },
+    {
+      "name": "VIOLINO",
+      "dica": "Instrumento musical de cordas, tocado com um arco"
+    },
+    {
+      "name": "TELESCOPIO",
+      "dica": "Instrumento óptico que permite a observação de objetos distantes no espaço"
+    },
+    {
+      "name": "BICICLETA",
+      "dica": "Veículo de duas rodas movido pelo impulso dos pedais"
+    },
+    {
+      "name": "BALAO",
+      "dica": "Objeto inflável que sobe no ar quando cheio de gás mais leve que o ar"
+    },
+    {
+      "name": "CACHOEIRA",
+      "dica": "Queda d'água natural, geralmente em um rio ou riacho"
+    },
+    {
+      "name": "SACOLA",
+      "dica": "Bolsa de tecido ou plástico usada para transportar objetos"
+    },
+    {
+      "name": "VULCAO",
+      "dica": "Abertura na crosta terrestre por onde lava, cinzas e gases são expelidos"
+    },
+    {
+      "name": "BOLSA",
+      "dica": "Pequena bolsa usada para carregar objetos pessoais, geralmente feita de tecido ou couro"
+    },
+    {
+      "name": "CRUZEIRO",
+      "dica": "Viagem de lazer em um navio de cruzeiro, geralmente para destinos turísticos"
+    },
+    {
+      "name": "NUVEM",
+      "dica": "Massa de gotículas de água ou cristais de gelo suspensos na atmosfera"
+    },
+    {
+      "name": "GALAXIA",
+      "dica": "Grande sistema de estrelas, gás e poeira ligados pela gravidade"
+    },
+    {
+      "name": "DADO",
+      "dica": "Objeto cúbico usado em jogos de azar e de estratégia"
+    },
+    {
+      "name": "ALICATE",
+      "dica": "Ferramenta manual com duas alavancas usada para segurar, dobrar ou cortar objetos"
+    },
+    {
+      "name": "BINOCULOS",
+      "dica": "Instrumento óptico que permite a visualização ampliada de objetos distantes"
+    },
+    {
+      "name": "QUADRADO",
+      "dica": "Figura geométrica com quatro lados de igual comprimento e quatro ângulos retos"
+    },
+    {
+      "name": "CANETA",
+      "dica": "Instrumento de escrita composto por um tubo de tinta e uma ponta metálica ou plástica"
+    },
+    {
+      "name": "CARACOL",
+      "dica": "Molusco terrestre de concha espiralada, geralmente encontrado em ambientes úmidos"
+    },
+    {
+      "name": "CELULAR",
+      "dica": "Dispositivo eletrônico portátil usado para comunicação, acesso à internet e outras funções"
+    },
+    {
+      "name": "PLATO",
+      "dica": "Planalto ou área elevada de terreno plano, geralmente cercada por encostas íngremes"
+    },
+    {
+      "name": "PLANETA",
+      "dica": "Corpo celeste que orbita uma estrela, como a Terra, Marte ou Júpiter"
+    },
+    {
+      "name": "BUSSOLA",
+      "dica": "Instrumento de navegação que indica a direção magnética"
+    },
+    {
+      "name": "MUSICA",
+      "dica": "Forma de arte que combina sons harmoniosos em sequência organizada"
+    },
+    {
+      "name": "REFRIGERANTE",
+      "dica": "Bebida gaseificada, geralmente doce e com sabor de frutas ou outros aromas"
+    },
+    {
+      "name": "TUBARAO",
+      "dica": "Grande peixe cartilaginoso marinho, conhecido por sua forma aerodinâmica e dentes afiados"
+    },
+    {
+      "name": "PLATANO",
+      "dica": "Fruta alongada, de casca amarela, consumida crua ou cozida"
+    },
+    {
+      "name": "HOROSCOPO",
+      "dica": "Sistema de previsão baseado na posição dos astros, usado em algumas tradições para determinar características pessoais e eventos futuros"
+    },
+    {
+      "name": "CACHIMBO",
+      "dica": "Dispositivo utilizado para fumar tabaco, composto por uma câmara de combustão e um tubo"
+    },
+    {
+      "name": "MOCHILA",
+      "dica": "Saco feito de tecido resistente, usado para transportar objetos nas costas"
+    },
+    {
+      "name": "CACTO",
+      "dica": "Planta suculenta, comumente encontrada em regiões áridas, conhecida por suas espinhas"
+    }
+  ]
+}

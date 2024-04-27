@@ -1,0 +1,113 @@
+{
+  "name": "Animais",
+  "words": [
+    {
+      "name": "LEAO",
+      "dica": "Grande felino conhecido por sua juba"
+    },
+    {
+      "name": "ELEFANTE",
+      "dica": "Maior mamífero terrestre, caracterizado por sua tromba"
+    },
+    {
+      "name": "GIRASSOL",
+      "dica": "Planta comum em jardins, que acompanha a trajetória do sol"
+    },
+    {
+      "name": "CACHORRO",
+      "dica": "Animal doméstico conhecido por sua lealdade"
+    },
+    {
+      "name": "GATO",
+      "dica": "Animal doméstico de estimação, conhecido por sua independência"
+    },
+    {
+      "name": "TIGRE",
+      "dica": "Grande felino listrado, encontrado em diversas regiões da Ásia"
+    },
+    {
+      "name": "URSO",
+      "dica": "Animal mamífero, conhecido por sua pelagem espessa e habilidade de hibernar"
+    },
+    {
+      "name": "SERPENTE",
+      "dica": "Réptil alongado, muitas vezes associado a veneno e estrangulamento"
+    },
+    {
+      "name": "MACACO",
+      "dica": "Primate conhecido por sua agilidade e comportamento social"
+    },
+    {
+      "name": "COBRA",
+      "dica": "Réptil venenoso, geralmente caracterizado por seu padrão de cores e movimentos rápidos"
+    },
+    {
+      "name": "CAMELO",
+      "dica": "Animal adaptado para viver em ambientes áridos, com uma ou duas corcovas"
+    },
+    {
+      "name": "CROCODILO",
+      "dica": "Réptil semelhante a um lagarto, com mandíbulas poderosas e adaptado para viver em ambientes aquáticos"
+    },
+    {
+      "name": "PATO",
+      "dica": "Ave aquática comum em lagos e rios, conhecida por sua vocalização característica"
+    },
+    {
+      "name": "PASSARO",
+      "dica": "Animal vertebrado de sangue quente, caracterizado por possuir penas e asas"
+    },
+    {
+      "name": "RATO",
+      "dica": "Pequeno mamífero roedor, comum em áreas urbanas e rurais"
+    },
+    {
+      "name": "ZEBRA",
+      "dica": "Animal selvagem da família dos equídeos, conhecido por suas listras"
+    },
+    {
+      "name": "GALINHA",
+      "dica": "Ave doméstica comum em criações agrícolas, conhecida por botar ovos"
+    },
+    {
+      "name": "ABELHA",
+      "dica": "Inseto conhecido por sua importância na polinização das plantas"
+    },
+    {
+      "name": "BODE",
+      "dica": "Animal ruminante comum em criações agrícolas, conhecido por seu leite e carne"
+    },
+    {
+      "name": "PANDA",
+      "dica": "Ursídeo conhecido por sua pelagem branca e preta, nativo da China"
+    },
+    {
+      "name": "GAZELA",
+      "dica": "Antílope ágil, conhecido por seus saltos graciosos"
+    },
+    {
+      "name": "PUMA",
+      "dica": "Felino selvagem também conhecido como onça-parda ou suçuarana"
+    },
+    {
+      "name": "COALA",
+      "dica": "Marsupial arbóreo nativo da Austrália, conhecido por se alimentar principalmente de folhas de eucalipto"
+    },
+    {
+      "name": "ARA",
+      "dica": "Ave psitaciforme de cores vibrantes, conhecida por sua inteligência e capacidade de imitar sons"
+    },
+    {
+      "name": "ORANGOTANGO",
+      "dica": "Primate conhecido por sua inteligência e semelhança com os seres humanos, nativo das florestas tropicais do Sudeste Asiático"
+    },
+    {
+      "name": "GALO",
+      "dica": "Macho da galinha, conhecido por seu canto matinal"
+    },
+    {
+      "name": "IGUANA",
+      "dica": "Réptil de grande porte, comum em regiões tropicais, conhecido por sua coloração verde e hábitos arborícolas"
+    }
+  ]
+}

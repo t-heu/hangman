@@ -1,0 +1,109 @@
+{
+  "name": "Comidas",
+  "words": [
+    {
+      "name": "PIZZA",
+      "dica": "Prato italiano popular, consistindo em uma base de massa coberta com molho de tomate, queijo e uma variedade de ingredientes"
+    },
+    {
+      "name": "HAMBURGUER",
+      "dica": "Sanduíche feito com carne moída, geralmente servido em um pão redondo com diversos acompanhamentos"
+    },
+    {
+      "name": "LASANHA",
+      "dica": "Prato de massa em camadas, intercaladas com molho de tomate, queijo e carne"
+    },
+    {
+      "name": "SUSHI",
+      "dica": "Prato japonês composto por arroz temperado com vinagre, combinado com peixe cru ou frutos do mar, e envolto em alga marinha"
+    },
+    {
+      "name": "CHOCOLATE",
+      "dica": "Doce feito a partir do cacau, geralmente na forma de barras, bombons ou coberturas"
+    },
+    {
+      "name": "SALADA",
+      "dica": "Prato composto por uma mistura de vegetais crus, geralmente servidos com molhos"
+    },
+    {
+      "name": "ESPAGUETE",
+      "dica": "Tipo de massa longa e fina, frequentemente servida com molho de tomate e queijo ralado"
+    },
+    {
+      "name": "CHURRASCO",
+      "dica": "Método de cozimento de carne sobre uma grelha ou espeto, popular em diversas culturas"
+    },
+    {
+      "name": "SOPA",
+      "dica": "Prato líquido preparado com legumes, carne, peixe ou outros ingredientes, frequentemente servido quente"
+    },
+    {
+      "name": "PASTEL",
+      "dica": "Salgado recheado com diversos ingredientes, como carne, queijo, frango, palmito, entre outros, e frito em óleo"
+    },
+    {
+      "name": "TORTA",
+      "dica": "Prato doce ou salgado preparado com uma base de massa e um recheio variado, geralmente assado no forno"
+    },
+    {
+      "name": "BISCOITO",
+      "dica": "Pequeno doce assado, geralmente feito de farinha, açúcar e gordura"
+    },
+    {
+      "name": "EMPADA",
+      "dica": "Salgado individual, composto por uma massa em forma de cesto recheada com uma variedade de ingredientes, geralmente assado no forno"
+    },
+    {
+      "name": "PAELLA",
+      "dica": "Prato espanhol de arroz, preparado com uma variedade de frutos do mar, carne, legumes e temperos"
+    },
+    {
+      "name": "YAKISOBA",
+      "dica": "Prato japonês de macarrão frito, geralmente preparado com legumes, carne e molho de soja"
+    },
+    {
+      "name": "COXINHA",
+      "dica": "Salgado brasileiro em formato de coxa de frango, recheado com uma massa de batata e frango desfiado, empanado e frito em óleo"
+    },
+    {
+      "name": "SASHIMI",
+      "dica": "Prato japonês de peixe cru, geralmente fatiado e servido com molho de soja e wasabi"
+    },
+    {
+      "name": "MOQUECA",
+      "dica": "Prato brasileiro de peixe ou frutos do mar cozidos em um molho com leite de coco, azeite de dendê, tomate, cebola, pimentões e temperos"
+    },
+    {
+      "name": "TIRAMISU",
+      "dica": "Sobremesa italiana composta por camadas de biscoitos embebidos em café, intercaladas com um creme de queijo mascarpone"
+    },
+    {
+      "name": "SUSHI",
+      "dica": "Prato japonês composto por arroz temperado com vinagre, combinado com peixe cru ou frutos do mar, e envolto em alga marinha"
+    },
+    {
+      "name": "RISOTO",
+      "dica": "Prato italiano de arroz cozido lentamente em caldo, geralmente servido com queijo e outros ingredientes"
+    },
+    {
+      "name": "KEBAB",
+      "dica": "Prato árabe de carne assada em espeto, geralmente servido com vegetais e molhos em um pão ou no prato"
+    },
+    {
+      "name": "ESFIHA",
+      "dica": "Salgado de origem árabe, em forma de disco ou triângulo, recheado com carne, queijo, frango ou vegetais, e assado no forno"
+    },
+    {
+      "name": "PIPA",
+      "dica": "Doce brasileiro de origem portuguesa, feito com uma massa frita e polvilhada com açúcar e canela"
+    },
+    {
+      "name": "CAIPIRINHA",
+      "dica": "Coquetel brasileiro feito com cachaça, limão, açúcar e gelo"
+    },
+    {
+      "name": "PAO",
+      "dica": "Alimento básico feito com farinha, água, sal e fermento, assado no forno"
+    }
+  ]
+}

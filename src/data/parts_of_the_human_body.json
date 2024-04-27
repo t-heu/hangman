@@ -1,0 +1,121 @@
+{
+  "name": "Partes do corpo humano",
+  "words": [
+    {
+      "name": "CABELO",
+      "dica": "Fios que crescem na parte superior da cabeça"
+    },
+    {
+      "name": "OLHOS",
+      "dica": "Órgãos de visão localizados na parte frontal do rosto"
+    },
+    {
+      "name": "BOCA",
+      "dica": "Abertura na parte inferior do rosto usada para comer, falar e respirar"
+    },
+    {
+      "name": "ORELHAS",
+      "dica": "Órgãos de audição localizados na lateral da cabeça"
+    },
+    {
+      "name": "NARIZ",
+      "dica": "Órgão de olfação localizado no centro do rosto"
+    },
+    {
+      "name": "LINGUA",
+      "dica": "Órgão muscular na boca usado para saborear e falar"
+    },
+    {
+      "name": "DENTES",
+      "dica": "Estruturas duras na boca usadas para mastigar alimentos"
+    },
+    {
+      "name": "COSTELAS",
+      "dica": "Ossos longos e curvos que protegem os órgãos internos no peito"
+    },
+    {
+      "name": "BRACOS",
+      "dica": "Partes do corpo humano entre os ombros e as mãos"
+    },
+    {
+      "name": "PERNAS",
+      "dica": "Partes do corpo humano entre os quadris e os pés"
+    },
+    {
+      "name": "PELE",
+      "dica": "Camada externa do corpo humano, cobrindo e protegendo os órgãos internos"
+    },
+    {
+      "name": "COTOVELO",
+      "dica": "Articulação entre o braço e o antebraço"
+    },
+    {
+      "name": "PES",
+      "dica": "Partes do corpo humano usadas para suportar o peso e se locomover"
+    },
+    {
+      "name": "JOELHOS",
+      "dica": "Articulações que ligam as coxas aos joelhos"
+    },
+    {
+      "name": "PULMOES",
+      "dica": "Órgãos de respiração responsáveis por absorver oxigênio e liberar dióxido de carbono"
+    },
+    {
+      "name": "CORACAO",
+      "dica": "Órgão muscular que bombeia sangue para todo o corpo"
+    },
+    {
+      "name": "CEREBRO",
+      "dica": "Órgão de controle central do sistema nervoso, responsável pelo pensamento, memória e coordenação"
+    },
+    {
+      "name": "ESTOMAGO",
+      "dica": "Órgão no sistema digestivo que quebra e digere alimentos"
+    },
+    {
+      "name": "INTESTINOS",
+      "dica": "Parte do sistema digestivo onde ocorre a absorção de nutrientes"
+    },
+    {
+      "name": "FIGADO",
+      "dica": "Órgão no sistema digestivo que filtra o sangue e produz bile"
+    },
+    {
+      "name": "RINS",
+      "dica": "Órgãos no sistema urinário que filtram resíduos do sangue para produzir urina"
+    },
+    {
+      "name": "BEXIGA",
+      "dica": "Órgão no sistema urinário que armazena urina antes da eliminação"
+    },
+    {
+      "name": "ESPINHA",
+      "dica": "Série de ossos que formam a coluna vertebral"
+    },
+    {
+      "name": "PEITO",
+      "dica": "Parte do corpo humano entre o pescoço e o abdômen"
+    },
+    {
+      "name": "OMBROS",
+      "dica": "Partes do corpo humano que conectam os braços ao tronco"
+    },
+    {
+      "name": "PUNHOS",
+      "dica": "Articulações entre as mãos e os braços"
+    },
+    {
+      "name": "QUADRIS",
+      "dica": "Articulações entre o tronco e as pernas"
+    },
+    {
+      "name": "COXAS",
+      "dica": "Parte das pernas entre os quadris e os joelhos"
+    },
+    {
+      "name": "LABIOS",
+      "dica": "Partes moles e móveis ao redor da boca"
+    }
+  ]
+}

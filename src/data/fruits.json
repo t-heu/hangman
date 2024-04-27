@@ -1,0 +1,101 @@
+{
+  "name": "Frutas",
+  "words": [
+    {
+      "name": "ABACAXI",
+      "dica": "Fruta tropical de sabor ácido e refrescante"
+    },
+    {
+      "name": "BANANA",
+      "dica": "Fruta amarela, alongada e de sabor adocicado"
+    },
+    {
+      "name": "CEREJA",
+      "dica": "Fruta pequena, vermelha e doce, geralmente utilizada em sobremesas"
+    },
+    {
+      "name": "MORANGO",
+      "dica": "Fruta vermelha, suculenta e saborosa, com sementes na superfície"
+    },
+    {
+      "name": "UVA",
+      "dica": "Fruta arredondada, geralmente roxa ou verde, utilizada para fazer sucos e vinhos"
+    },
+    {
+      "name": "LARANJA",
+      "dica": "Fruta cítrica de cor alaranjada, rica em vitamina C"
+    },
+    {
+      "name": "MACA",
+      "dica": "Fruta redonda, geralmente vermelha ou verde, com sabor adocicado"
+    },
+    {
+      "name": "PERA",
+      "dica": "Fruta suculenta de forma alongada, geralmente amarela ou verde"
+    },
+    {
+      "name": "KIWI",
+      "dica": "Fruta verde e pequena, com sabor único e textura peluda"
+    },
+    {
+      "name": "ABACATE",
+      "dica": "Fruta verde, com polpa cremosa e sabor característico"
+    },
+    {
+      "name": "MANGA",
+      "dica": "Fruta tropical de polpa suculenta, geralmente amarela ou alaranjada"
+    },
+    {
+      "name": "PITAYA",
+      "dica": "Fruta exótica de casca rosa e polpa branca ou vermelha, com sabor delicado"
+    },
+    {
+      "name": "CAJU",
+      "dica": "Fruta tropical, comum em países como o Brasil, de sabor agridoce e suco refrescante"
+    },
+    {
+      "name": "GOIABA",
+      "dica": "Fruta de casca verde ou amarela, com polpa doce e aroma característico"
+    },
+    {
+      "name": "JACA",
+      "dica": "Fruta grande, de casca espinhosa e polpa suculenta, com sabor adocicado"
+    },
+    {
+      "name": "MARACUJA",
+      "dica": "Fruta de casca dura e polpa com sementes, com sabor agridoce e aroma intenso"
+    },
+    {
+      "name": "AMORA",
+      "dica": "Fruta pequena e escura, com sabor doce e levemente ácido"
+    },
+    {
+      "name": "COCO",
+      "dica": "Fruto com casca dura e polpa branca ou amarelada, rico em água e nutrientes"
+    },
+    {
+      "name": "FIGO",
+      "dica": "Fruta pequena e doce, com casca fina e polpa macia, geralmente roxa ou verde"
+    },
+    {
+      "name": "GRUMIXAMA",
+      "dica": "Fruta brasileira, pequena e escura, com sabor doce e levemente ácido"
+    },
+    {
+      "name": "LIMA",
+      "dica": "Fruta cítrica, similar ao limão, geralmente utilizada para fazer sucos e temperos"
+    },
+    {
+      "name": "NECTARINA",
+      "dica": "Fruta similar ao pêssego, porém com casca lisa e sabor mais intenso"
+    },
+    {
+      "name": "TANGERINA",
+      "dica": "Variedade de laranja de casca fina, fácil de descascar, com sabor adocicado"
+    },
+    {
+      "name": "CAQUI",
+      "dica": "Fruta de casca fina e polpa adocicada, geralmente alaranjada ou avermelhada"
+    }
+  ]
+}
