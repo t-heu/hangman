@@ -9,6 +9,12 @@ Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou
 - Firebase (Realtime Database)
 - PWA
 - Styled Components
+- Jest
+- - Unit
+- - Integration
+- - Snapshot
+- - Coverage report
+- - Tests used: mock, faker
 
 ## Preview
 ![alt text](docs/preview.png "Title")
