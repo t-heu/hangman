@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 
 import { database, set, ref, update, get, child, push } from '../../api/firebase';
 import {getthemes} from '../../data';
+import generateRandomWord from "../../utils/generateRandomWord"
 
 import Button from '../../components/button'
 
@@ -18,22 +19,12 @@ import {
   Checkmark,
   InputT
 } from './style'
-import {IHome} from "../../interfaces";
+// import {IHome} from "../../interfaces";
 
 export default function Home({lang, changeComponent, code, currentPlayerUID, indexTheme}: any) {
   const [checked, setChecked] = useState(1);
   const [name, setName] = useState('');
   const [codeRoom, setCodeRoom] = useState('');
-
-  function generateRandomWord(length: number) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let randomWord = '';
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      randomWord += characters.charAt(randomIndex);
-    }
-    return randomWord;
-  }
 
   function createPlayer(roomKey: string, owner: boolean, name: string) {
     try {
@@ -94,6 +85,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
       } else {
         indexTheme(checked)
         changeComponent('Game')
+        console.log('Jogo criado com sucesso')
       }
     } catch (e) {
       console.error('Erro ao criar jogo:', e);

@@ -1,5 +1,5 @@
 import { monitorConnectionStatus, exitPlayer } from './monitorConnection';
-import { database, ref, update, onValue, onDisconnect, remove } from '../api/firebase'
+import { update, remove } from '../api/firebase'
 
 // Mock das funções e props necessárias para o teste
 jest.mock('../api/firebase', () => ({
@@ -12,9 +12,10 @@ jest.mock('../api/firebase', () => ({
   })),
   remove: jest.fn(),
   database: jest.fn(),
-  onValue: jest.fn(() => ({
-    remove: jest.fn()
-  })),
+  onValue: jest.fn((ref, callback) => {
+    // Simular chamada do callback com um valor falso
+    callback({ val: () => false });
+  }),
 }));
 
 describe('Firebase functions', () => {
@@ -22,29 +23,16 @@ describe('Firebase functions', () => {
     jest.clearAllMocks();
   });
 
-  let originalBeforeUnload: any;
-
-  beforeAll(() => {
-    // Salva a referência para a função original de beforeunload
-    originalBeforeUnload = window.onbeforeunload;
-    // Substitui a função original de beforeunload por uma função vazia
-    window.onbeforeunload = () => {};
-  });
-
-  afterAll(() => {
-    // Restaura a função original de beforeunload após os testes
-    window.onbeforeunload = originalBeforeUnload;
-  });
-
   it('monitorConnectionStatus deve remover jogador quando desconectado', () => {
     const roomCode = '123';
     const playerKey = 'user123';
 
-    // Simula desconexão chamando o callback com false
-    originalBeforeUnload()
-
     // Chama a função monitorConnectionStatus
     monitorConnectionStatus(roomCode, playerKey);
+
+    // Simula a desconexão chamando o callback com false
+    const onValueCallback = jest.fn();
+    onValueCallback({ val: () => false });
 
     // Verifica se a função remove foi chamada corretamente
     expect(remove).toHaveBeenCalled();

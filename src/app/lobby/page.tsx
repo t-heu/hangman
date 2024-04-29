@@ -10,8 +10,8 @@ import getNextPlayer from '../../utils/getNextPlayer';
 import Button from '../../components/button'
 
 import { 
-  Main, 
   Title,
+  Main
 } from '../style'
 
 import { 

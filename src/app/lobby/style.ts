@@ -15,7 +15,7 @@ export const PlayerContainer = styled.div`
   justify-content: flex-start;
   margin-left: 10px;
   margin-right: 10px;
-  max-width: 150px;
+  max-width: 200px;
   min-width: auto;
   display: flex;
 `;
