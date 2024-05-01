@@ -5,15 +5,67 @@ import Home from './page';
 
 import lang from "../dictionaries/pt.json"
 
-// Mock das funções e props necessárias para o teste
+const data = {
+  ABCDEF: {
+    turn: 'p1',
+    indexTheme: 4,
+    gameInProgress: false,
+    selectedLetters: Array('-'),
+    wordArray: Array('-'),
+    selectedWord: {name: '', dica: ''},
+    players: {
+      "p-NwnnNoN2L4y3thEVfj6": {
+        active: true,
+        gameover: false,
+        name: "Theu A",
+        owner: false,
+        ready: false,
+        uid: "-NwnnNoN2L4y3thEVfj6",
+        victory: false,
+      }
+    }
+  }
+}
+
 jest.mock('../../api/firebase', () => ({
   ref: jest.fn(),
+  child: jest.fn((_, path) => {
+    return path
+  }),
+  get: jest.fn((path) => {
+    if (path === 'hangman/rooms') {
+      // Simula um snapshot com os dados que você deseja
+      const snapshot = {
+        exists: () => true,
+        val: () => data
+      };
+      // Retorna uma promessa que resolve com o snapshot simulado
+      return Promise.resolve(snapshot);
+    } else if (path === 'hangman/rooms/ABCDEF') {
+      // Simula um snapshot com os dados que você deseja
+      const snapshot = {
+        exists: () => true,
+        val: () => data
+      };
+      return Promise.resolve(snapshot);
+    } else {
+      return Promise.resolve(null);
+    }
+  }),
+  set: jest.fn(() => Promise.resolve()),
+  push: jest.fn(() => ({
+    key: 'newKey' // Simula a criação de uma nova referência com uma chave simulada
+  })),
   update: jest.fn(),
-  onValue: jest.fn((ref, callback) => callback({ val: jest.fn() })),
   onDisconnect: jest.fn(() => ({
-    remove: jest.fn(),
+    remove: jest.fn()
   })),
   remove: jest.fn(),
+  database: jest.fn(),
+  onValue: jest.fn((ref, callback) => {
+    // Simular chamada do callback com um valor falso
+    callback({ val: () => false });
+  }),
 }));
 
 describe('Home component', () => {
@@ -91,73 +143,6 @@ describe('Home component', () => {
       expect(mockChangeComponent).toHaveBeenCalledWith('Game');
     });
   });
-  
-  it('should transition to offline mode when "Play" button is pressed', async () => {
-    // Mock da função changeComponent
-    const mockChangeComponent = jest.fn();
-
-    // Renderiza o componente Home com a função changeComponent mockada
-    const { getByText, getByTestId } = render(
-      <Home 
-        lang={lang.home} 
-        changeComponent={mockChangeComponent} // Passa o mock como prop
-        code={jest.fn()}
-        currentPlayerUID={jest.fn()}
-        indexTheme={jest.fn()}
-      />
-    );
-
-    const nameInput = getByTestId('name_id') as HTMLInputElement;
-
-    fireEvent.change(nameInput, { target: { value: "Theu" } });
-    expect(nameInput.value).toBe("Theu");
-
-    // Encontra o botão pelo texto "JOGAR"
-    const jogarOfflineButton = getByText('JOGAR');
-
-    // Simula um clique no botão "JOGAR"
-    fireEvent.click(jogarOfflineButton);
-
-    // Aguarda até que a função changeComponent seja chamada com o argumento 'Game'
-    await waitFor(() => {
-      expect(mockChangeComponent).toHaveBeenCalledWith('Game');
-    });
-  });
-/*
-it('should transition to offline mode when "PLAY in CODE" button is pressed', async () => {
-    // Mock da função changeComponent
-    const mockChangeComponent = jest.fn();
-
-    // Renderiza o componente Home com a função changeComponent mockada
-    const { getByText, getByTestId } = render(
-      <Home 
-        lang={lang.home} 
-        changeComponent={mockChangeComponent} // Passa o mock como prop
-        code={jest.fn()}
-        currentPlayerUID={jest.fn()}
-        indexTheme={jest.fn()}
-      />
-    );
-
-    const nameInput = getByTestId('name_id') as HTMLInputElement;
-    const codeInput = getByTestId('code_id') as HTMLInputElement;
-
-    fireEvent.change(nameInput, { target: { value: "Theu" } });
-    fireEvent.change(codeInput, { target: { value: "ABCYUO" } });
-    expect(nameInput.value).toBe("Theu");
-    expect(codeInput.value).toBe("ABCYUO");
-
-    // Encontra o botão pelo texto "JOGAR"
-    const jogarOfflineButton = getByText('JOGAR');
-
-    // Simula um clique no botão "JOGAR"
-    fireEvent.click(jogarOfflineButton);
-
-    // Aguarda até que a função changeComponent seja chamada com o argumento 'Game'
-    await waitFor(() => {
-      expect(mockChangeComponent).toHaveBeenCalledWith('Game');
-    });
-  });
 
   it('should transition to offline mode when "CREATE YOUR ROOM" button is pressed', async () => {
     // Mock da função changeComponent
@@ -180,14 +165,81 @@ it('should transition to offline mode when "PLAY in CODE" button is pressed', as
     expect(nameInput.value).toBe("Theu");
 
     // Encontra o botão pelo texto "CRIE SUA SALA"
-    const jogarOfflineButton = getByText('CRIE SUA SALA');
+    const play = getByText('CRIE SUA SALA');
 
     // Simula um clique no botão "CRIE SUA SALA"
-    fireEvent.click(jogarOfflineButton);
+    fireEvent.click(play);
 
     // Aguarda até que a função changeComponent seja chamada com o argumento 'Game'
     await waitFor(() => {
-      expect(mockChangeComponent).toHaveBeenCalledWith('Game');
+      expect(mockChangeComponent).toHaveBeenCalledWith('Lobby');
     });
-  });*/
+  });
+  
+  it('should transition to offline mode when "Play" button is pressed', async () => {
+    // Mock da função changeComponent
+    const mockChangeComponent = jest.fn();
+
+    // Renderiza o componente Home com a função changeComponent mockada
+    const { getByText, getByTestId } = render(
+      <Home 
+        lang={lang.home} 
+        changeComponent={mockChangeComponent} // Passa o mock como prop
+        code={jest.fn()}
+        currentPlayerUID={jest.fn()}
+        indexTheme={jest.fn()}
+      />
+    );
+
+    const nameInput = getByTestId('name_id') as HTMLInputElement;
+
+    fireEvent.change(nameInput, { target: { value: "Theu" } });
+    expect(nameInput.value).toBe("Theu");
+
+    // Encontra o botão pelo texto "JOGAR"
+    const play = getByText('JOGAR');
+
+    // Simula um clique no botão "JOGAR"
+    fireEvent.click(play);
+
+    // Aguarda até que a função changeComponent seja chamada com o argumento 'Game'
+    await waitFor(() => {
+      expect(mockChangeComponent).toHaveBeenCalledWith('Lobby');
+    });
+  });
+
+it('should transition to offline mode when "PLAY in CODE" button is pressed', async () => {
+    // Mock da função changeComponent
+    const mockChangeComponent = jest.fn();
+
+    // Renderiza o componente Home com a função changeComponent mockada
+    const { getByText, getByTestId } = render(
+      <Home 
+        lang={lang.home} 
+        changeComponent={mockChangeComponent} // Passa o mock como prop
+        code={jest.fn()}
+        currentPlayerUID={jest.fn()}
+        indexTheme={jest.fn()}
+      />
+    );
+
+    const nameInput = getByTestId('name_id') as HTMLInputElement;
+    const codeInput = getByTestId('code_id') as HTMLInputElement;
+
+    fireEvent.change(nameInput, { target: { value: "Theu" } });
+    fireEvent.change(codeInput, { target: { value: "ABCDEF" } });
+    expect(nameInput.value).toBe("Theu");
+    expect(codeInput.value).toBe("ABCDEF");
+
+    // Encontra o botão pelo texto "JOGAR"
+    const play = getByText('JOGAR');
+
+    // Simula um clique no botão "JOGAR"
+    fireEvent.click(play);
+
+    // Aguarda até que a função changeComponent seja chamada com o argumento 'Game'
+    await waitFor(() => {
+      expect(mockChangeComponent).toHaveBeenCalledWith('Lobby');
+    });
+  });
 });
