@@ -16,6 +16,7 @@ import Button from '../../components/button';
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';
+import {checkLetter,normalize} from "../../utils/normalizeLetter"
 
 interface Theme {
   name: string;
@@ -84,15 +85,19 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const handleSelectLetter = (letter: string) => {
     if (!selectedLetters.includes(letter)) {
       setSelectedLetters([...selectedLetters, letter]);
-  
-      const newWordName = word.name.split('').map((char, index) => char === letter ? char : wordName[index]);
+
+      const matches = checkLetter(word.name, letter);
+      const newWordName = word.name.split('').map((char, index) => matches[index] ? char : wordName[index]);
 
       const isNotEmpty = newWordName.every((char) => char !== '');
       if (isNotEmpty) {
         handleVictory();
       }
 
-      if (newWordName.indexOf(letter) === -1) {
+      const normalizedWordName = newWordName.map(normalize);
+      const normalizedLetter = normalize(letter);
+
+      if (!normalizedWordName.includes(normalizedLetter)) {
         handleIncorrectGuess();
       }
 

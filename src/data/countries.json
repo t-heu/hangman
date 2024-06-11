@@ -2,7 +2,7 @@
   "name": "Países",
   "words": [
     {
-      "name": "NOVAZELANDIA",
+      "name": "NOVAZELÂNDIA",
       "dica": "País insular na Oceania, conhecido por sua paisagem deslumbrante e cultura Maori"
     },
     {
@@ -10,11 +10,11 @@
       "dica": "País composto por quatro nações constituintes: Inglaterra, Escócia, País de Gales e Irlanda do Norte"
     },
     {
-      "name": "EMIRADOSARABES",
+      "name": "EMIRADOSÁRABES",
       "dica": "Federação de sete emirados localizada na Península Arábica, conhecida por sua riqueza petrolífera"
     },
     {
-      "name": "ARABIASAUDITA",
+      "name": "ARÁBIASAUDITA",
       "dica": "Maior país árabe, localizado na Península Arábica, conhecido por suas reservas de petróleo"
     },
     {
@@ -22,27 +22,23 @@
       "dica": "País no extremo leste da Ásia, conhecido por sua economia avançada e tecnologia"
     },
     {
-      "name": "COREIADO",
-      "dica": "País na península coreana, conhecido por sua história rica e disputas políticas"
-    },
-    {
       "name": "COSTARICA",
       "dica": "País da América Central, conhecido por suas paisagens exuberantes e biodiversidade"
     },
     {
-      "name": "REPUBLICADOCONGO",
+      "name": "REPÚBLICADOCONGO",
       "dica": "País da África Central, conhecido por sua rica diversidade cultural e recursos naturais"
     },
     {
-      "name": "REPUBLICACENTROAFRICANA",
+      "name": "REPÚBLICACENTROAFRICANA",
       "dica": "País na África Central, conhecido por sua rica cultura e beleza natural"
     },
     {
-      "name": "REPUBLICADOMINICANA",
+      "name": "REPÚBLICADOMINICANA",
       "dica": "País caribenho conhecido por suas praias deslumbrantes e rica cultura"
     },
     {
-      "name": "SAINTKITTSNEVIS",
+      "name": "SAINTKITTSENEVIS",
       "dica": "Pequeno país insular no Caribe, conhecido por suas praias de areia branca e clima tropical"
     },
     {
@@ -50,35 +46,15 @@
       "dica": "Ilha caribenha conhecida por sua beleza natural, incluindo vulcões, praias e montanhas"
     },
     {
-      "name": "SAINTVINCENTEGRENADINES",
+      "name": "SAINTVINCENTEGRANADINAS",
       "dica": "Nação insular do Caribe, composta por várias ilhas, conhecida por suas praias intocadas e águas cristalinas"
     },
     {
-      "name": "SANTALUCIA",
-      "dica": "Ilha caribenha conhecida por sua beleza natural, incluindo vulcões, praias e montanhas"
-    },
-    {
-      "name": "SANTAKITTSNEVIS",
-      "dica": "Pequeno país insular no Caribe, conhecido por suas praias de areia branca e clima tropical"
-    },
-    {
-      "name": "SANTAVINCENTEGRENADINAS",
-      "dica": "Nação insular do Caribe, composta por várias ilhas, conhecida por suas praias intocadas e águas cristalinas"
-    },
-    {
-      "name": "SAOCHRISTOPHERE",
-      "dica": "Ilha caribenha conhecida por suas praias de areia branca e águas azul-turquesa"
-    },
-    {
-      "name": "SAOCHRISTOPHEREENEVIS",
-      "dica": "Nação insular no Caribe, composta por duas ilhas, conhecida por suas praias deslumbrantes e rica história colonial"
-    },
-    {
-      "name": "SAOPEDROEMIQUELON",
+      "name": "SÃOPEDROEMIQUELON",
       "dica": "Território ultramarino francês localizado na costa leste do Canadá, conhecido por sua beleza natural e rica vida marinha"
     },
     {
-      "name": "SAOTOMEEPRINCIPE",
+      "name": "SÃOTOMÉEPRÍNCIPE",
       "dica": "País insular na costa oeste da África Central, conhecido por suas praias intocadas e biodiversidade"
     }
   ]

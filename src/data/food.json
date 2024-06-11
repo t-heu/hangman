@@ -6,7 +6,7 @@
       "dica": "Prato italiano popular, consistindo em uma base de massa coberta com molho de tomate, queijo e uma variedade de ingredientes"
     },
     {
-      "name": "HAMBURGUER",
+      "name": "HAMBÚRGUER",
       "dica": "Sanduíche feito com carne moída, geralmente servido em um pão redondo com diversos acompanhamentos"
     },
     {
@@ -74,12 +74,8 @@
       "dica": "Prato brasileiro de peixe ou frutos do mar cozidos em um molho com leite de coco, azeite de dendê, tomate, cebola, pimentões e temperos"
     },
     {
-      "name": "TIRAMISU",
+      "name": "TIRAMISÙ",
       "dica": "Sobremesa italiana composta por camadas de biscoitos embebidos em café, intercaladas com um creme de queijo mascarpone"
-    },
-    {
-      "name": "SUSHI",
-      "dica": "Prato japonês composto por arroz temperado com vinagre, combinado com peixe cru ou frutos do mar, e envolto em alga marinha"
     },
     {
       "name": "RISOTO",
@@ -102,7 +98,7 @@
       "dica": "Coquetel brasileiro feito com cachaça, limão, açúcar e gelo"
     },
     {
-      "name": "PAO",
+      "name": "PÃO",
       "dica": "Alimento básico feito com farinha, água, sal e fermento, assado no forno"
     }
   ]

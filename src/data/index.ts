@@ -7,6 +7,7 @@ import fruits from './fruits.json';
 import parts_of_the_human_body from './parts_of_the_human_body.json';
 import super_heroes from './super_heroes.json';
 import random from './random.json';
+// import test from './test.json';
 
 interface IThemeModel {
   name: string;
@@ -29,7 +30,8 @@ const themes: ITheme = {
   5: () => continents,
   6: () => countries,
   7: () => car_Brands,
-  8: () => parts_of_the_human_body
+  8: () => parts_of_the_human_body,
+  // 9: () => test
 }
  
 export const getthemes = () => {

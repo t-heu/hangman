@@ -22,7 +22,7 @@
       "dica": "Órgão de olfação localizado no centro do rosto"
     },
     {
-      "name": "LINGUA",
+      "name": "LÍNGUA",
       "dica": "Órgão muscular na boca usado para saborear e falar"
     },
     {
@@ -34,7 +34,7 @@
       "dica": "Ossos longos e curvos que protegem os órgãos internos no peito"
     },
     {
-      "name": "BRACOS",
+      "name": "BRAÇOS",
       "dica": "Partes do corpo humano entre os ombros e as mãos"
     },
     {
@@ -50,27 +50,27 @@
       "dica": "Articulação entre o braço e o antebraço"
     },
     {
-      "name": "PES",
+      "name": "PÉS",
       "dica": "Partes do corpo humano usadas para suportar o peso e se locomover"
     },
     {
       "name": "JOELHOS",
-      "dica": "Articulações que ligam as coxas aos joelhos"
+      "dica": "Articulações que ligam as coxas às pernas"
     },
     {
-      "name": "PULMOES",
+      "name": "PULMÕES",
       "dica": "Órgãos de respiração responsáveis por absorver oxigênio e liberar dióxido de carbono"
     },
     {
-      "name": "CORACAO",
+      "name": "CORAÇÃO",
       "dica": "Órgão muscular que bombeia sangue para todo o corpo"
     },
     {
-      "name": "CEREBRO",
+      "name": "CÉREBRO",
       "dica": "Órgão de controle central do sistema nervoso, responsável pelo pensamento, memória e coordenação"
     },
     {
-      "name": "ESTOMAGO",
+      "name": "ESTÔMAGO",
       "dica": "Órgão no sistema digestivo que quebra e digere alimentos"
     },
     {
@@ -78,7 +78,7 @@
       "dica": "Parte do sistema digestivo onde ocorre a absorção de nutrientes"
     },
     {
-      "name": "FIGADO",
+      "name": "FÍGADO",
       "dica": "Órgão no sistema digestivo que filtra o sangue e produz bile"
     },
     {
@@ -114,7 +114,7 @@
       "dica": "Parte das pernas entre os quadris e os joelhos"
     },
     {
-      "name": "LABIOS",
+      "name": "LÁBIOS",
       "dica": "Partes moles e móveis ao redor da boca"
     }
   ]
