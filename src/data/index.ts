@@ -1,10 +1,10 @@
 import animals from './animals.json';
-import car_Brands from './car_Brands.json';
-import continents from './continents.json';
-import countries from './countries.json';
+import car_brands from './car_brands.json';
+import color from './color.json';
+import science_tech from './science_tech.json';
 import food from './food.json';
 import fruits from './fruits.json';
-import parts_of_the_human_body from './parts_of_the_human_body.json';
+import parts_human_body from './parts_human_body.json';
 import super_heroes from './super_heroes.json';
 import random from './random.json';
 // import test from './test.json';
@@ -26,11 +26,11 @@ const themes: ITheme = {
   1: () => animals,
   2: () => food,
   3: () => fruits,
-  4: () => super_heroes,
-  5: () => continents,
-  6: () => countries,
-  7: () => car_Brands,
-  8: () => parts_of_the_human_body,
+  4: () => color,
+  5: () => super_heroes,
+  6: () => science_tech,
+  7: () => car_brands,
+  8: () => parts_human_body,
   // 9: () => test
 }
  

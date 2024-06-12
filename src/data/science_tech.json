@@ -1,0 +1,121 @@
+{
+  "name": "Ciência e Tecnologia",
+  "words": [
+    {
+      "name": "ELECTROENCEFALOGRAFIA",
+      "dica": "Técnica de registro da atividade elétrica do cérebro"
+    },
+    {
+      "name": "BIOINFORMÁTICA",
+      "dica": "Interdisciplinaridade que desenvolve métodos e softwares para entender dados biológicos"
+    },
+    {
+      "name": "NANOTECNOLOGIA",
+      "dica": "Manipulação da matéria em uma escala atômica ou molecular"
+    },
+    {
+      "name": "CRISPRCAS9",
+      "dica": "Tecnologia de edição genética que pode modificar o DNA com alta precisão"
+    },
+    {
+      "name": "FOTOVOLTAICO",
+      "dica": "Refere-se à conversão de luz em eletricidade usando semicondutores"
+    },
+    {
+      "name": "ESPECTROFOTOMETRIA",
+      "dica": "Técnica de medição da absorção de luz por substâncias em diferentes comprimentos de onda"
+    },
+    {
+      "name": "TELEMETRIA",
+      "dica": "Tecnologia de medição e envio de informações à distância"
+    },
+    {
+      "name": "BIODEGRADÁVEL",
+      "dica": "Capaz de ser decomposto por organismos vivos, especialmente bactérias"
+    },
+    {
+      "name": "ELETROMIOGRAFIA",
+      "dica": "Técnica de diagnóstico que avalia a saúde dos músculos e dos nervos que os controlam"
+    },
+    {
+      "name": "HELICOBACTER",
+      "dica": "Gênero de bactérias que incluem espécies que causam infecções no estômago"
+    },
+    {
+      "name": "ESPECTROSCOPIA",
+      "dica": "Estudo da interação entre matéria e radiação eletromagnética"
+    },
+    {
+      "name": "BIOENGENHARIA",
+      "dica": "Aplicação dos princípios da engenharia para o campo da biologia"
+    },
+    {
+      "name": "MICROPROCESSADOR",
+      "dica": "Unidade central de processamento de um computador em um único circuito integrado"
+    },
+    {
+      "name": "TRANSISTOR",
+      "dica": "Componente semicondutor usado para amplificar ou comutar sinais eletrônicos"
+    },
+    {
+      "name": "CIBERNÉTICA",
+      "dica": "Estudo dos sistemas de controle e comunicação em máquinas e seres vivos"
+    },
+    {
+      "name": "NEUROCIÊNCIA",
+      "dica": "Campo científico que estuda o sistema nervoso"
+    },
+    {
+      "name": "MICROBIOMA",
+      "dica": "Conjunto de microrganismos que habitam um ambiente específico, como o corpo humano"
+    },
+    {
+      "name": "NEUROPLASTICIDADE",
+      "dica": "Capacidade do cérebro de se reorganizar formando novas conexões neuronais"
+    },
+    {
+      "name": "TERMODINÂMICA",
+      "dica": "Ramo da física que estuda os efeitos da temperatura, pressão e volume em sistemas físicos"
+    },
+    {
+      "name": "BIOMIMÉTICA",
+      "dica": "Abordagem que busca emular modelos, sistemas e elementos da natureza para resolver problemas complexos humanos"
+    },
+    {
+      "name": "ELETROMAGNETISMO",
+      "dica": "Ramo da física que estuda os campos elétrico e magnético e suas interações"
+    },
+    {
+      "name": "BIOELETROQUÍMICA",
+      "dica": "Estudo das reações eletroquímicas em sistemas biológicos"
+    },
+    {
+      "name": "FOTOCONDUTIVIDADE",
+      "dica": "Propriedade de certos materiais de aumentar sua condutividade elétrica quando expostos à luz"
+    },
+    {
+      "name": "MECÂNICAQUÂNTICA",
+      "dica": "Ramo da física que lida com os fenômenos em escala atômica e subatômica"
+    },
+    {
+      "name": "ANTROPOLOGIAFORENSE",
+      "dica": "Aplicação da ciência da antropologia para resolver casos criminais"
+    },
+    {
+      "name": "BIOFARMACÊUTICA",
+      "dica": "Ramo da farmacologia que estuda a produção de medicamentos usando organismos biológicos"
+    },
+    {
+      "name": "ECOFISIOLOGIA",
+      "dica": "Estudo das interações entre os organismos e seu ambiente, focando em suas adaptações fisiológicas"
+    },
+    {
+      "name": "ASTROBIOLOGIA",
+      "dica": "Estudo da vida no universo, incluindo sua origem, evolução e distribuição"
+    },
+    {
+      "name": "GEOBIOQUÍMICA",
+      "dica": "Estudo dos processos químicos e físicos que influenciam a composição e a dinâmica dos sistemas geológicos e biológicos"
+    }
+  ]
+}

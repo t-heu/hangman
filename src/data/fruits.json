@@ -30,10 +30,6 @@
       "dica": "Fruta redonda, geralmente vermelha ou verde, com sabor adocicado"
     },
     {
-      "name": "PERA",
-      "dica": "Fruta suculenta de forma alongada, geralmente amarela ou verde"
-    },
-    {
       "name": "KIWI",
       "dica": "Fruta verde e pequena, com sabor único e textura peluda"
     },
@@ -60,10 +56,6 @@
     {
       "name": "JACA",
       "dica": "Fruta grande, de casca espinhosa e polpa suculenta, com sabor adocicado"
-    },
-    {
-      "name": "MARACUJÁ",
-      "dica": "Fruta de casca dura e polpa com sementes, com sabor agridoce e aroma intenso"
     },
     {
       "name": "AMORA",
@@ -94,8 +86,24 @@
       "dica": "Variedade de laranja de casca fina, fácil de descascar, com sabor adocicado"
     },
     {
+      "name": "LIMÃO",
+      "dica": "Fruta cítrica, verde ou amarela, usada para fazer sucos e temperar alimentos"
+    },
+    {
+      "name": "PÊRA",
+      "dica": "Fruta de forma alongada, com casca verde ou amarela e polpa macia e suculenta"
+    },
+    {
       "name": "CAQUI",
-      "dica": "Fruta de casca fina e polpa adocicada, geralmente alaranjada ou avermelhada"
+      "dica": "Fruta de casca fina e polpa macia, de cor laranja intensa e sabor doce"
+    },
+    {
+      "name": "CARAMBOLA",
+      "dica": "Fruta amarela e de formato estrelado, com sabor doce e ácido"
+    },
+    {
+      "name": "MARACUJÁ",
+      "dica": "Fruta de casca dura e enrugada, com polpa amarela e ácida, usada para sucos"
     }
   ]
 }

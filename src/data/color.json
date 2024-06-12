@@ -1,0 +1,105 @@
+{
+  "name": "Cores",
+  "words": [
+    {
+      "name": "VERMELHO",
+      "dica": "Cor associada à paixão, ao amor e ao fogo, muitas vezes utilizada para sinalizar perigo"
+    },
+    {
+      "name": "AZUL",
+      "dica": "Cor frequentemente associada ao céu e ao mar, simboliza calma e serenidade"
+    },
+    {
+      "name": "VERDE",
+      "dica": "Cor que representa a natureza, o crescimento e a saúde, comum em plantas e paisagens naturais"
+    },
+    {
+      "name": "AMARELO",
+      "dica": "Cor brilhante e alegre, associada ao sol, à energia e à felicidade"
+    },
+    {
+      "name": "PRETO",
+      "dica": "Cor que simboliza mistério, elegância e sofisticação, muitas vezes associada ao luto"
+    },
+    {
+      "name": "BRANCO",
+      "dica": "Cor associada à pureza, à paz e à limpeza, frequentemente usada em cerimônias e simbolismos de renovação"
+    },
+    {
+      "name": "ROXO",
+      "dica": "Cor associada à realeza, ao luxo e à criatividade, muitas vezes ligada à espiritualidade"
+    },
+    {
+      "name": "LARANJA",
+      "dica": "Cor vibrante e energizante, associada ao entusiasmo, ao calor e à vitalidade"
+    },
+    {
+      "name": "ROSA",
+      "dica": "Cor associada à ternura, ao romance e à feminilidade, frequentemente usada para simbolizar carinho"
+    },
+    {
+      "name": "MARROM",
+      "dica": "Cor associada à terra, à solidez e à estabilidade, comum em materiais naturais como madeira e solo"
+    },
+    {
+      "name": "CINZA",
+      "dica": "Cor neutra, associada à modernidade, à sofisticação e à formalidade"
+    },
+    {
+      "name": "VIOLETA",
+      "dica": "Cor situada entre o azul e o roxo no espectro de cores, frequentemente associada à magia e à intuição"
+    },
+    {
+      "name": "DOURADO",
+      "dica": "Cor associada à riqueza, ao sucesso e ao prestígio, muitas vezes usada em decorações luxuosas"
+    },
+    {
+      "name": "PRATA",
+      "dica": "Cor metálica associada à modernidade, à inovação e à elegância"
+    },
+    {
+      "name": "TURQUESA",
+      "dica": "Cor azul-esverdeada associada ao mar e à tranquilidade, frequentemente usada em joias e decoração"
+    },
+    {
+      "name": "CARMESIM",
+      "dica": "Cor vermelha intensa, muitas vezes associada à paixão e à nobreza"
+    },
+    {
+      "name": "PÚRPURA",
+      "dica": "Cor intensa e vibrante, frequentemente associada à nobreza e à criatividade"
+    },
+    {
+      "name": "LILÁS",
+      "dica": "Cor suave e clara, frequentemente associada à delicadeza e à espiritualidade"
+    },
+    {
+      "name": "MAGENTA",
+      "dica": "Cor vibrante situada entre o vermelho e o roxo, associada à criatividade e à energia"
+    },
+    {
+      "name": "SALMÃO",
+      "dica": "Cor rosada com um toque de laranja, frequentemente associada à delicadeza e ao charme"
+    },
+    {
+      "name": "ÂMBAR",
+      "dica": "Cor amarela dourada, associada à resina fossilizada e frequentemente usada em joalheria"
+    },
+    {
+      "name": "AÇAFRÃO",
+      "dica": "Cor amarela alaranjada, associada à especiaria valiosa e utilizada em culinária e tingimento"
+    },
+    {
+      "name": "BEGE",
+      "dica": "Cor neutra e suave, frequentemente associada à simplicidade e à elegância"
+    },
+    {
+      "name": "ESMERALDA",
+      "dica": "Cor verde intensa, associada à pedra preciosa e à natureza exuberante"
+    },
+    {
+      "name": "OLIVA",
+      "dica": "Cor verde amarelada, frequentemente associada à natureza e à sofisticação"
+    }
+  ]
+}
