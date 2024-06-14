@@ -196,6 +196,438 @@
     {
       "name": "CACTO",
       "dica": "Planta suculenta, comumente encontrada em regiões áridas, conhecida por suas espinhas"
+    },
+    {
+      "name": "MERCÚRIO",
+      "dica": "O planeta mais próximo do Sol, conhecido por suas altas temperaturas"
+    },
+    {
+      "name": "VÊNUS",
+      "dica": "Segundo planeta a partir do Sol, conhecido por sua atmosfera densa e ácida"
+    },
+    {
+      "name": "TERRA",
+      "dica": "Nosso planeta, o único conhecido por abrigar vida"
+    },
+    {
+      "name": "MARTE",
+      "dica": "Conhecido como o 'planeta vermelho', devido ao óxido de ferro em sua superfície"
+    },
+    {
+      "name": "JÚPITER",
+      "dica": "O maior planeta do Sistema Solar, famoso por sua Grande Mancha Vermelha"
+    },
+    {
+      "name": "SATURNO",
+      "dica": "Conhecido por seus extensos anéis de gelo e rocha"
+    },
+    {
+      "name": "URANO",
+      "dica": "Planeta gelado com uma rotação axial única, inclinado de lado"
+    },
+    {
+      "name": "NETUNO",
+      "dica": "Planeta azul, conhecido por seus ventos fortes e tempestades"
+    },
+    {
+      "name": "CASABLANCA",
+      "dica": "Filme romântico de 1942 estrelado por Humphrey Bogart e Ingrid Bergman"
+    },
+    {
+      "name": "PSICOSE",
+      "dica": "Filme de terror psicológico de 1960 dirigido por Alfred Hitchcock"
+    },
+    {
+      "name": "CIDADÃOKEANE",
+      "dica": "Filme de 1941 dirigido por Orson Welles, considerado um dos melhores de todos os tempos"
+    },
+    {
+      "name": "BONEQUINHADELUXO",
+      "dica": "Comédia romântica de 1961 estrelada por Audrey Hepburn"
+    },
+    {
+      "name": "VIOLINO",
+      "dica": "Instrumento de cordas tocado com um arco"
+    },
+    {
+      "name": "PIANO",
+      "dica": "Instrumento de teclas, amplamente usado em música clássica e jazz"
+    },
+    {
+      "name": "TROMPETE",
+      "dica": "Instrumento de sopro de metal com válvulas"
+    },
+    {
+      "name": "VIOLÃO",
+      "dica": "Instrumento de cordas, similar à guitarra, comum na música popular brasileira"
+    },
+    {
+      "name": "BATERIA",
+      "dica": "Conjunto de tambores e pratos tocados com baquetas"
+    },
+    {
+      "name": "SAXOFONE",
+      "dica": "Instrumento de sopro de metal, amplamente usado em jazz"
+    },
+    {
+      "name": "FLAUTA",
+      "dica": "Instrumento de sopro de madeira, tocado transversalmente"
+    },
+    {
+      "name": "HARPPA",
+      "dica": "Instrumento de cordas com uma grande moldura triangular"
+    },
+    {
+      "name": "HIDROGÊNIO",
+      "dica": "O elemento mais leve e abundante no universo"
+    },
+    {
+      "name": "OXIGÊNIO",
+      "dica": "Elemento essencial para a respiração dos seres vivos"
+    },
+    {
+      "name": "CARBONO",
+      "dica": "Elemento fundamental para a química orgânica e a vida"
+    },
+    {
+      "name": "NITROGÊNIO",
+      "dica": "Componente principal da atmosfera terrestre"
+    },
+    {
+      "name": "FERRO",
+      "dica": "Metal utilizado para fazer aço e presente no sangue"
+    },
+    {
+      "name": "OURO",
+      "dica": "Metal precioso, símbolo de riqueza"
+    },
+    {
+      "name": "SÓDIO",
+      "dica": "Elemento presente no sal de cozinha"
+    },
+    {
+      "name": "CLORO",
+      "dica": "Elemento usado para desinfetar água e fazer PVC"
+    },
+    {
+      "name": "MELANCOLIA",
+      "dica": "Estado de tristeza profunda e duradoura."
+    },
+    {
+      "name": "ECLÉTICO",
+      "dica": "Que reúne elementos de diversas fontes ou estilos."
+    },
+    {
+      "name": "PERSPECTIVA",
+      "dica": "Modo de ver ou considerar algo; ponto de vista."
+    },
+    {
+      "name": "PARADOXO",
+      "dica": "Afirmação ou situação que contraria a lógica ou a opinião comum."
+    },
+    {
+      "name": "IMPETUOSO",
+      "dica": "Que age com ímpeto, energia ou entusiasmo."
+    },
+    {
+      "name": "NEBULOSO",
+      "dica": "Coberto de névoa ou neblina; obscuro, confuso."
+    },
+    {
+      "name": "CONSTELAÇÃO",
+      "dica": "Conjunto de estrelas que formam uma figura imaginária no céu."
+    },
+    {
+      "name": "CATASTRÓFICO",
+      "dica": "Que provoca grande destruição ou desgraça."
+    },
+    {
+      "name": "INEFÁVEL",
+      "dica": "Que não se pode exprimir por palavras."
+    },
+    {
+      "name": "ELOQUENTE",
+      "dica": "Que tem o dom da palavra; convincente, expressivo."
+    },
+    {
+      "name": "SERENDIPIDADE",
+      "dica": "Descoberta ou acontecimento feliz e inesperado."
+    },
+    {
+      "name": "LABIRINTO",
+      "dica": "Lugar formado por muitas ruas ou caminhos onde é difícil se orientar."
+    },
+    {
+      "name": "TRANSCENDENTE",
+      "dica": "Que vai além dos limites normais; superior, extraordinário."
+    },
+    {
+      "name": "EPIFANIA",
+      "dica": "Manifestação de uma divindade; revelação súbita e intuitiva."
+    },
+    {
+      "name": "PROCRASTINAR",
+      "dica": "Adiar, deixar para depois."
+    },
+    {
+      "name": "EXUBERANTE",
+      "dica": "Que demonstra vitalidade, entusiasmo; abundante, cheio de vida."
+    },
+    {
+      "name": "ONÍRICO",
+      "dica": "Relativo aos sonhos; fantasioso, surreal."
+    },
+    {
+      "name": "INEVITÁVEL",
+      "dica": "Que não pode ser evitado; certo, seguro."
+    },
+    {
+      "name": "SILHUETA",
+      "dica": "Contorno ou perfil de uma figura, geralmente em sombra."
+    },
+    {
+      "name": "ALTRUÍSMO",
+      "dica": "Desinteresse, amor ao próximo, oposto ao egoísmo."
+    },
+    {
+      "name": "FRAGMENTADO",
+      "dica": "Que está dividido em partes menores."
+    },
+    {
+      "name": "DINÂMICO",
+      "dica": "Que tem movimento, energia, vitalidade."
+    },
+    {
+      "name": "CRONÓGRAFO",
+      "dica": "Instrumento usado para medir e registrar o tempo."
+    },
+    {
+      "name": "RESILIÊNCIA",
+      "dica": "Capacidade de se recuperar de adversidades."
+    },
+    {
+      "name": "SINTONIA",
+      "dica": "Harmonia, concordância de sentimentos ou pensamentos."
+    },
+    {
+      "name": "MONOLÍTICO",
+      "dica": "Feito de uma única pedra; maciço, inabalável."
+    },
+    {
+      "name": "SAGACIDADE",
+      "dica": "Qualidade de quem é sagaz; esperteza, perspicácia."
+    },
+    {
+      "name": "PARALELEPÍPEDO",
+      "dica": "Forma geométrica com seis faces retangulares; pedra usada em pavimentação."
+    },
+    {
+      "name": "HIPÓTESE",
+      "dica": "Suposição feita como base para argumentação ou investigação."
+    },
+    {
+      "name": "INSÓLITO",
+      "dica": "Que é raro, estranho, fora do comum."
+    },
+    {
+      "name": "ENIGMÁTICO",
+      "dica": "Que contém ou é envolvido em mistério; difícil de entender."
+    },
+    {
+      "name": "CATÁSTROFE",
+      "dica": "Evento trágico que causa grande destruição ou perda."
+    },
+    {
+      "name": "ETIMOLÓGICO",
+      "dica": "Relativo à etimologia, ao estudo da origem das palavras."
+    },
+    {
+      "name": "REVIGORANTE",
+      "dica": "Que dá força, energia; revitalizante."
+    },
+    {
+      "name": "PROFUNDIDADE",
+      "dica": "Qualidade do que é profundo; dimensão de algo em direção ao fundo."
+    },
+    {
+      "name": "FLUTUANTE",
+      "dica": "Que está à tona; que pode se mover livremente sobre a superfície de um líquido."
+    },
+    {
+      "name": "CONTEMPORÂNEO",
+      "dica": "Que é do mesmo tempo, época atual."
+    },
+    {
+      "name": "INCONCEBÍVEL",
+      "dica": "Que não se pode conceber, imaginar ou acreditar."
+    },
+    {
+      "name": "SOBERANIA",
+      "dica": "Autoridade suprema, poder absoluto de um estado ou nação."
+    },
+    {
+      "name": "MAGNÂNIMO",
+      "dica": "Que tem grandeza de alma; generoso, nobre."
+    },
+    {
+      "name": "AMBIGUIDADE",
+      "dica": "Qualidade do que pode ter dois ou mais significados."
+    },
+    {
+      "name": "DISCREPÂNCIA",
+      "dica": "Diferença ou contradição entre fatos, números ou opiniões."
+    },
+    {
+      "name": "IMPASSÍVEL",
+      "dica": "Que não mostra emoções; indiferente, insensível."
+    },
+    {
+      "name": "IDIOSINCRASIA",
+      "dica": "Característica ou modo de agir peculiar a um indivíduo ou grupo."
+    },
+    {
+      "name": "OSTENTAR",
+      "dica": "Mostrar com orgulho ou exibição; exibir com vaidade."
+    },
+    {
+      "name": "PERSUASIVO",
+      "dica": "Capaz de convencer alguém a fazer ou acreditar em algo."
+    },
+    {
+      "name": "IMPREVISÍVEL",
+      "dica": "Que não pode ser previsto; incerto, inesperado."
+    },
+    {
+      "name": "ENCARNAÇÃO",
+      "dica": "Ato de se tornar carne ou corpo; manifestação física."
+    },
+    {
+      "name": "METICULOSO",
+      "dica": "Que presta muita atenção aos detalhes; minucioso."
+    },
+    {
+      "name": "IMPLACÁVEL",
+      "dica": "Que não pode ser aplacado; inflexível, rigoroso."
+    },
+    {
+      "name": "INTELECTUAL",
+      "dica": "Relativo ao intelecto; pessoa que se dedica às atividades do espírito."
+    },
+    {
+      "name": "SINCRONIA",
+      "dica": "Ocorrência simultânea de eventos; harmonia de movimentos."
+    },
+    {
+      "name": "TRANSCENDER",
+      "dica": "Ir além dos limites; superar, ultrapassar."
+    },
+    {
+      "name": "ENRAIZADO",
+      "dica": "Que está profundamente fixado ou estabelecido."
+    },
+    {
+      "name": "LUMINESCÊNCIA",
+      "dica": "Emissão de luz por uma substância que não está incandescente."
+    },
+    {
+      "name": "RECALCITRANTE",
+      "dica": "Que resiste obstinadamente; teimoso, indomável."
+    },
+    {
+      "name": "INFATIGÁVEL",
+      "dica": "Que não se cansa; incansável, perseverante."
+    },
+    {
+      "name": "MANIFESTAÇÃO",
+      "dica": "Ato de manifestar-se; demonstração pública de opinião."
+    },
+    {
+      "name": "NOMENCLATURA",
+      "dica": "Conjunto de termos técnicos específicos de uma ciência ou arte."
+    },
+    {
+      "name": "ANFITEATRO",
+      "dica": "Local de apresentações públicas, geralmente ao ar livre e em forma circular."
+    },
+    {
+      "name": "INTROSPECÇÃO",
+      "dica": "Exame interno dos próprios pensamentos e sentimentos."
+    },
+    {
+      "name": "PLENITUDE",
+      "dica": "Estado de completo desenvolvimento; totalidade, perfeição."
+    },
+    {
+      "name": "ESPECTRAL",
+      "dica": "Relativo a espectro; fantasmagórico, sobrenatural."
+    },
+    {
+      "name": "NEUROCIÊNCIA",
+      "dica": "Estudo do sistema nervoso e do cérebro."
+    },
+    {
+      "name": "CATASTROFISMO",
+      "dica": "Teoria que explica as mudanças na Terra por grandes catástrofes."
+    },
+    {
+      "name": "DESINTEGRAR",
+      "dica": "Quebrar ou separar em partes menores; desfazer-se."
+    },
+    {
+      "name": "DESCONCERTO",
+      "dica": "Estado de confusão ou desordem; embaraço."
+    },
+    {
+      "name": "INCOMENSURÁVEL",
+      "dica": "Que não pode ser medido ou comparado; imensurável."
+    },
+    {
+      "name": "CONGELAMENTO",
+      "dica": "Ato ou processo de congelar; estado de algo que foi congelado."
+    },
+    {
+      "name": "EXISTENCIALISMO",
+      "dica": "Corrente filosófica que enfatiza a existência individual, a liberdade e a escolha."
+    },
+    {
+      "name": "REVOLUCIONÁRIO",
+      "dica": "Relativo a uma revolução; que provoca mudanças radicais."
+    },
+    {
+      "name": "PROTAGONISTA",
+      "dica": "Personagem principal de uma história; líder de uma causa."
+    },
+    {
+      "name": "ANTITÉTICO",
+      "dica": "Que é contrário ou oposto; que envolve antítese."
+    },
+    {
+      "name": "ININTELIGÍVEL",
+      "dica": "Que não pode ser compreendido; obscuro, incompreensível."
+    },
+    {
+      "name": "ARQUIVOLOGIA",
+      "dica": "Estudo de arquivos e documentação; ciência da informação."
+    },
+    {
+      "name": "INSONDÁVEL",
+      "dica": "Que não se pode sondar; misterioso, incompreensível."
+    },
+    {
+      "name": "EQUILÍBRIO",
+      "dica": "Estado de estabilidade; harmonia entre forças opostas."
+    },
+    {
+      "name": "INACREDITÁVEL",
+      "dica": "Que não pode ser acreditado; incrível, surpreendente."
+    },
+    {
+      "name": "MISANTROPIA",
+      "dica": "Aversão ao convívio social; desconfiança nas pessoas."
+    },
+    {
+      "name": "VEROSSIMILHANÇA",
+      "dica": "Qualidade do que parece verdadeiro; plausibilidade."
     }
   ]
 }
