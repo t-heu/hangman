@@ -4,6 +4,7 @@ export const Title = styled.p`
   color: #fff;
   font-size: 18px;
   margin: 20px 0;
+  text-align: center
 `;
 
 export const Main = styled.div`
