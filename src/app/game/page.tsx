@@ -19,13 +19,18 @@ import getNextPlayer from '../../utils/getNextPlayer';
 import {checkLetter,normalize} from "../../utils/normalizeLetter"
 
 interface Theme {
-  name: string;
-  dica: string;
+  selectedWord: {
+    name: string;
+    dica: string;
+  }
+  wordArray: string[]
 }
 
 export default function Game({lang, changeComponent, code, currentPlayerUID, indexTheme}: any) {
-  const [word, setWord] = useState<Theme>({name: '', dica: ''});
-  const [wordName, setWordName] = useState<string[]>([]);
+  const [gameState, setGameState] = useState<Theme>({
+    selectedWord: { name: '', dica: '' },
+    wordArray: []
+  });
   const [selectedLetters, setSelectedLetters] = useState<string[]>([]);
   const [countErrors, setCountErrors] = useState(0);
   const [existLetter, setExistLetter] = useState('');
@@ -74,10 +79,13 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   }
 
   function updateGameInProgressState(data: any) {
-    setWordName(data.wordArray);
     setSelectedLetters(data.selectedLetters);
+    setGameState(prevState => ({
+      ...prevState,
+      selectedWord: data.selectedWord,
+      wordArray: data.wordArray
+    }));
     setStatusGame(`p${currentPlayerUID}` === data.turn ? 'play' : '')
-    setWord(data.selectedWord);
     setPlayers(data.players);
   }
 
@@ -85,8 +93,8 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     if (!selectedLetters.includes(letter)) {
       setSelectedLetters([...selectedLetters, letter]);
 
-      const matches = checkLetter(word.name, letter);
-      const newWordName = word.name.split('').map((char, index) => matches[index] ? char : wordName[index]);
+      const matches = checkLetter(gameState.selectedWord.name, letter);
+      const newWordName = gameState.selectedWord.name.split('').map((char, index) => matches[index] ? char : gameState.wordArray[index]);
 
       const isNotEmpty = newWordName.every((char) => char !== '');
       if (isNotEmpty) {
@@ -104,7 +112,10 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
         updateRoomState(letter, newWordName);
       }  
 
-      setWordName(newWordName);
+      setGameState(prevState => ({
+        ...prevState,
+        wordArray: newWordName
+      }));
     } else {
       setExistLetter(`${lang.letter_already_used_text} ${letter}`)
     }
@@ -191,8 +202,10 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const initializeGame = useCallback(() => {
     const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
 
-    setWord(selectedWord);
-    setWordName(wordArray);
+    setGameState({
+      selectedWord: selectedWord,
+      wordArray: wordArray
+    });
     setSelectedLetters([]);
     setCountErrors(0);
     setExistLetter('');
@@ -236,10 +249,10 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
       </InfoHeader>
 
       <LetterContainer>
-        {wordName.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
+        {gameState.wordArray.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
       </LetterContainer>
 
-      <GuideText>{word.dica ? `${lang.tip_text}: ${word.dica}` : null}</GuideText>
+      <GuideText>{gameState.selectedWord.dica ? `${lang.tip_text}: ${gameState.selectedWord.dica}` : null}</GuideText>
       
       {statusGame === 'play' ? (
         <LetterContainer>
@@ -248,7 +261,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
       ) : statusGame === 'gameover' ? (
         <>
           <GuideText style={{color: '#FDE767'}}>{winnerMessage}</GuideText>
-          {!code || (!(wordName.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang.word_text} {word.name}</GuideText>) : null}
+          {!code || (!(gameState.wordArray.every((char) => char !== '')) && Object.values(players).length > 1) ? (<GuideText style={{color: '#FDE767'}}>{lang.word_text} {gameState.selectedWord.name}</GuideText>) : null}
           <Button press={restartGame} text={lang.play_again_button} />
           <Button press={logout} text={lang.exit_button} />
         </>
