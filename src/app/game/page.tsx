@@ -39,18 +39,32 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const [winnerMessage, setWinnerMessage] = useState('');
   const [turn, setTurn] = useState('');
 
-  function handleRoomData(snapshot: any) {
-    const data = snapshot.val();
-    if (!data) return;
+  const updateGameInProgressState = useCallback((data: any) => {
+    setSelectedLetters(data.selectedLetters);
+    setGameState(prevState => ({
+      ...prevState,
+      selectedWord: data.selectedWord,
+      wordArray: data.wordArray
+    }));
+    setStatusGame(`p${currentPlayerUID}` === data.turn ? 'play' : '')
+    setPlayers(data.players);
+  }, []);
 
-    const playersArray = Object.values(data.players || {});
+  const handleGameEnd = useCallback((text: string, data: any) => {
+    setStatusGame('gameover');
 
-    if (data.gameInProgress) {
-      updateGameState(data, playersArray);
+    const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
+
+    if (winnerMessage) {
+      setWinnerMessage(`${winnerMessage.name} ${lang.winner_text}`);
+    } else {
+      setWinnerMessage(text);
     }
-  }
 
-  function updateGameState(data: any, playersArray: any[]) {
+    update(ref(database), { [`hangman/rooms/${code}/gameInProgress`]: false });
+  }, []);
+
+  const updateGameState = useCallback((data: any, playersArray: any[]) => {
     const allPlayersReady = playersArray.every((player: any) => player.active && !player.gameover && !player.victory);
     const anyPlayerGameOverOrVictory = playersArray.some((player: any) => player.gameover || player.victory);
 
@@ -76,20 +90,66 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     if (anyPlayerGameOverOrVictory) {
       handleGameEnd(lang.game_over_text, data);
     }
-  }
+  }, [getNextPlayer, handleGameEnd, updateGameInProgressState]);
 
-  function updateGameInProgressState(data: any) {
-    setSelectedLetters(data.selectedLetters);
-    setGameState(prevState => ({
-      ...prevState,
-      selectedWord: data.selectedWord,
-      wordArray: data.wordArray
-    }));
-    setStatusGame(`p${currentPlayerUID}` === data.turn ? 'play' : '')
-    setPlayers(data.players);
-  }
+  const handleRoomData = useCallback((snapshot: any) => {
+    const data = snapshot.val();
+    if (!data) return;
 
-  const handleSelectLetter = (letter: string) => {
+    const playersArray = Object.values(data.players || {});
+
+    if (data.gameInProgress) {
+      updateGameState(data, playersArray);
+    }
+  }, [updateGameState]);
+
+  const handleVictory = useCallback(() => {
+    setStatusGame('gameover');
+    setWinnerMessage(lang.winner_solo_text);
+
+    if (code) {
+      const updates: any = {};
+      Object.keys(players).forEach(key => {
+        if (key === `p${currentPlayerUID}`) {
+          updates[`hangman/rooms/${code}/players/${key}/victory`] = true;
+        } else {
+          updates[`hangman/rooms/${code}/players/${key}/gameover`] = true;
+        }
+      });
+      
+      update(ref(database), updates);
+    }  
+  }, [players, code]);
+
+  const handleIncorrectGuess = useCallback(() => {
+    setCountErrors(countErrors + 1);
+    
+    if (countErrors === 5) {
+      setStatusGame('gameover');
+      setWinnerMessage(lang.game_over_solo_text);
+      
+      if (code) {
+        const updates: any = {};
+
+        Object.keys(players).forEach(key => {
+          updates[`hangman/rooms/${code}/players/${key}/gameover`] = true;
+        });
+        update(ref(database), updates);
+      } 
+    }
+  }, [countErrors, players, code]);
+
+  const updateRoomState = useCallback((letter: string, newWordName: string[]) => {
+    const updates: any = {};
+    updates['hangman/rooms/' + code + '/selectedLetters'] = [...selectedLetters, letter];
+    updates['hangman/rooms/' + code + '/wordArray'] = newWordName;
+
+    const nextPlayer = 'p' + getNextPlayer(`p${currentPlayerUID}`, players).uid;
+    updates['hangman/rooms/' + code + '/turn'] = nextPlayer;
+    update(ref(database), updates);
+  }, [selectedLetters, code, players]);
+
+  const handleSelectLetter = useCallback((letter: string) => {
     if (!selectedLetters.includes(letter)) {
       setSelectedLetters([...selectedLetters, letter]);
 
@@ -119,69 +179,22 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     } else {
       setExistLetter(`${lang.letter_already_used_text} ${letter}`)
     }
-  };
+  }, [selectedLetters, gameState.selectedWord.name, gameState.wordArray, handleVictory, handleIncorrectGuess, updateRoomState]);
 
-  function updateRoomState(letter: string, newWordName: string[]) {
-    const updates: any = {};
-    updates['hangman/rooms/' + code + '/selectedLetters'] = [...selectedLetters, letter];
-    updates['hangman/rooms/' + code + '/wordArray'] = newWordName;
+  const initializeGame = useCallback(() => {
+    const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
 
-    const nextPlayer = 'p' + getNextPlayer(`p${currentPlayerUID}`, players).uid;
-    updates['hangman/rooms/' + code + '/turn'] = nextPlayer;
-    update(ref(database), updates);
-  }
+    setGameState({
+      selectedWord: selectedWord,
+      wordArray: wordArray
+    });
+    setSelectedLetters([]);
+    setCountErrors(0);
+    setExistLetter('');
+    setStatusGame('play');
+  }, [indexTheme])
 
-  const handleGameEnd = (text: string, data: any) => {
-    setStatusGame('gameover');
-
-    const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
-
-    if (winnerMessage) {
-      setWinnerMessage(`${winnerMessage.name} ${lang.winner_text}`);
-    } else {
-      setWinnerMessage(text);
-    }
-
-    update(ref(database), { [`hangman/rooms/${code}/gameInProgress`]: false });
-  };
-
-  const handleVictory = () => {
-    setStatusGame('gameover');
-    setWinnerMessage(lang.winner_solo_text);
-
-    if (code) {
-      const updates: any = {};
-      Object.keys(players).forEach(key => {
-        if (key === `p${currentPlayerUID}`) {
-          updates[`hangman/rooms/${code}/players/${key}/victory`] = true;
-        } else {
-          updates[`hangman/rooms/${code}/players/${key}/gameover`] = true;
-        }
-      });
-      
-      update(ref(database), updates);
-    }  
-  };
-
-  const handleIncorrectGuess = () => {
-    setCountErrors(countErrors + 1);
-    
-    if (countErrors === 5) {
-      setStatusGame('gameover');
-      setWinnerMessage(lang.game_over_solo_text);
-      
-      if (code) {
-        const updates: any = {};
-
-        Object.keys(players).forEach(key => {
-          updates[`hangman/rooms/${code}/players/${key}/gameover`] = true;
-        });
-        update(ref(database), updates);
-      } 
-    }
-  };
-
-  function restartGame() {
+  const restartGame = useCallback(() => {
     if (code) {
       const playerKey = 'p' + currentPlayerUID;
       
@@ -197,25 +210,12 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     } else {
       initializeGame();
     }
-  }
+  }, [code, currentPlayerUID, changeComponent, initializeGame]);
 
-  const initializeGame = useCallback(() => {
-    const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
-
-    setGameState({
-      selectedWord: selectedWord,
-      wordArray: wordArray
-    });
-    setSelectedLetters([]);
-    setCountErrors(0);
-    setExistLetter('');
-    setStatusGame('play');
-  }, [indexTheme])
-
-  const logout = () => {
+  const logout = useCallback(() => {
     if (code) exitPlayer(code, currentPlayerUID)
     changeComponent('Home')
-  }
+  }, [code, currentPlayerUID, changeComponent]);
 
   useEffect(() => {
     if (code) {
@@ -225,7 +225,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     } else {
       initializeGame();
     }
-  }, []);
+  }, [code, handleRoomData, initializeGame, currentPlayerUID]);
 
   if (!lang) {
     return null
