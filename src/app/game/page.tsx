@@ -10,7 +10,8 @@ import {
   GuideText,
   LetterContainer,
   CharacterDisplay,
-  LetterText
+  LetterText,
+  TimeText
 } from './style';
 import Button from '../../components/button';
 import generateTheme from '../../utils/generateTheme';
@@ -204,7 +205,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
         wordArray: newWordName
       }));
     } else {
-      setExistLetter(`${lang.letter_already_used_text} ${letter}`)
+      setExistLetter(`${letter} ${lang.letter_already_used_text}`)
     }
   }, [selectedLetters, gameState.selectedWord.name, gameState.wordArray, handleVictory, handleIncorrectGuess, updateRoomState]);
 
@@ -275,7 +276,9 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     <Main>
       <InfoHeader>
         <GuideText style={{color: '#e2584d'}}>{lang.errors_text}: {countErrors}</GuideText>
-        <GuideText style={{color: '#FDE767'}}>{timeRemaining < 10 ? `00:0${timeRemaining}` : `00:${timeRemaining}`}</GuideText>
+        <TimeText>
+          {timeRemaining < 10 ? `00:0${timeRemaining}` : `00:${timeRemaining}`}
+        </TimeText>
         <GuideText style={{color: '#FDE767'}}>{existLetter}</GuideText>
       </InfoHeader>
 
