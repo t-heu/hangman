@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 import { database, ref, update, onValue } from '../../api/firebase'
 import {
@@ -38,6 +38,29 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const [players, setPlayers] = useState<any>({});
   const [winnerMessage, setWinnerMessage] = useState('');
   const [turn, setTurn] = useState('');
+  const [timeRemaining, setTimeRemaining] = useState(30);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const stop = () => {
+    clearInterval(timerRef.current as NodeJS.Timeout);
+    timerRef.current = null;
+  };
+
+  const start = () => {
+    if (timerRef.current !== null) return; // Evita iniciar múltiplos temporizadores
+
+    timerRef.current = setInterval(() => {
+      setTimeRemaining(prevTime => {
+        if (prevTime <= 1) {
+          stop()
+          setStatusGame('gameover');
+          setWinnerMessage(`Tempo acabou ${lang.game_over_solo_text}`);
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+  };
 
   const updateGameInProgressState = useCallback((data: any) => {
     setSelectedLetters(data.selectedLetters);
@@ -92,7 +115,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
   }, [getNextPlayer, handleGameEnd, updateGameInProgressState]);
 
-  const handleRoomData = useCallback((snapshot: any) => {
+  const startMultiplayerGame = useCallback((snapshot: any) => {
     const data = snapshot.val();
     if (!data) return;
 
@@ -106,6 +129,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   const handleVictory = useCallback(() => {
     setStatusGame('gameover');
     setWinnerMessage(lang.winner_solo_text);
+    stop()
 
     if (code) {
       const updates: any = {};
@@ -127,7 +151,8 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     if (countErrors === 5) {
       setStatusGame('gameover');
       setWinnerMessage(lang.game_over_solo_text);
-      
+      stop(); // Clear timer on game end
+
       if (code) {
         const updates: any = {};
 
@@ -166,6 +191,8 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
       if (!normalizedWordName.includes(normalizedLetter)) {
         handleIncorrectGuess();
+      } else {
+        if (!code) setTimeRemaining(prevTime => prevTime + 1);
       }
 
       if (code) {
@@ -181,7 +208,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
   }, [selectedLetters, gameState.selectedWord.name, gameState.wordArray, handleVictory, handleIncorrectGuess, updateRoomState]);
 
-  const initializeGame = useCallback(() => {
+  const startOffGame = useCallback(() => {
     const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
 
     setGameState({
@@ -192,6 +219,9 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     setCountErrors(0);
     setExistLetter('');
     setStatusGame('play');
+    setTimeRemaining(30);
+    stop(); // Clear timer on game end
+    start()
   }, [indexTheme])
 
   const restartGame = useCallback(() => {
@@ -208,9 +238,9 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
       changeComponent('Lobby')
     } else {
-      initializeGame();
+      startOffGame();
     }
-  }, [code, currentPlayerUID, changeComponent, initializeGame]);
+  }, [code, currentPlayerUID, changeComponent, startOffGame]);
 
   const logout = useCallback(() => {
     if (code) exitPlayer(code, currentPlayerUID)
@@ -220,12 +250,12 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
   useEffect(() => {
     if (code) {
       const roomRef = ref(database, 'hangman/rooms/' + code);
-      onValue(roomRef, handleRoomData);
+      onValue(roomRef, startMultiplayerGame);
       monitorConnectionStatus(code, currentPlayerUID)
     } else {
-      initializeGame();
+      startOffGame();
     }
-  }, [code, handleRoomData, initializeGame, currentPlayerUID]);
+  }, [code, startMultiplayerGame, startOffGame, currentPlayerUID]);
 
   if (!lang) {
     return null
@@ -245,6 +275,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     <Main>
       <InfoHeader>
         <GuideText style={{color: '#e2584d'}}>{lang.errors_text}: {countErrors}</GuideText>
+        <GuideText style={{color: '#FDE767'}}>{timeRemaining < 10 ? `00:0${timeRemaining}` : `00:${timeRemaining}`}</GuideText>
         <GuideText style={{color: '#FDE767'}}>{existLetter}</GuideText>
       </InfoHeader>
 
