@@ -55,7 +55,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
         if (prevTime <= 1) {
           stop()
           setStatusGame('gameover');
-          setWinnerMessage(`Tempo acabou ${lang.game_over_solo_text}`);
+          setWinnerMessage(`${lang.time_is_over_text}`);
           return 0;
         }
         return prevTime - 1;

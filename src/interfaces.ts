@@ -33,6 +33,7 @@ interface LanguageDictionaries {
     tip_text: string;
     exit_button: string;
     play_again_button: string;
+    time_is_over_text: string;
     winner_text: string;
     game_over_text: string;
     winner_solo_text: string;
