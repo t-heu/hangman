@@ -66,13 +66,12 @@ export const Checkmark = styled.span`
   }
 `;
 
-
 export const Theme = styled.div`
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 260px;
+  height: 210px;
   align-items: center;
   justify-items: center;
   align-content: center;

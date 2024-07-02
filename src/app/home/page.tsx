@@ -195,9 +195,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
           <Title>{lang.waiting_title}</Title>
 
           <Theme>
-            {themes.map((data, i) => (
-              renderThemes(data, i)
-            ))}
+            {themes.length > 0 ? themes.map((data, i) => renderThemes(data, i)) : <Title>....</Title>}
           </Theme>
 
           <Button text={lang.exit_button} press={() => createGame(false)} />

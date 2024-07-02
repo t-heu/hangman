@@ -37,15 +37,6 @@ const localTheme: ITheme = {
   // 9: () => test
 }
 
-/*
-async function saveAITheme() {
-  const updates: any = {};
-  updates[`hangman/themesIA`] = {
-    ...ia
-  }
-  update(ref(database), updates);
-}*/
-
 const convertThemeDataToIThemeModel = (data: IThemeData): IThemeData => {
   return {
     ...data
@@ -53,6 +44,10 @@ const convertThemeDataToIThemeModel = (data: IThemeData): IThemeData => {
 };
 
 const loadThemes = async (): Promise<ITheme> => {
+  if (!navigator.onLine) {
+    return { ...localTheme };
+  }
+  
   try {
     const snapshot = await get(child(ref(database), 'hangman/themesIA'));
     if (snapshot.exists()) {
