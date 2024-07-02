@@ -1,7 +1,8 @@
-import {getthemes} from '../data';
+import {getThemes} from '../data';
 
-export default function generateTheme(checked: number) {
-  const scheme = getthemes().themes[checked][checked].words;
+export default async function generateTheme(checked: number) {
+  const { themes } = await getThemes();
+  const scheme = themes[checked][checked].words;
   const num = scheme.length - 1;
   const randomIndex = Math.round(Math.random() * num);
   

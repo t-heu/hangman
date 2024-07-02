@@ -209,8 +209,8 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
   }, [selectedLetters, gameState.selectedWord.name, gameState.wordArray, handleVictory, handleIncorrectGuess, updateRoomState]);
 
-  const startOffGame = useCallback(() => {
-    const { selectedWord, wordArray } = generateTheme(indexTheme === undefined ? 4 : indexTheme);
+  const startOffGame = useCallback(async () => {
+    const { selectedWord, wordArray } = await generateTheme(indexTheme === undefined ? 4 : indexTheme);
 
     setGameState({
       selectedWord: selectedWord,

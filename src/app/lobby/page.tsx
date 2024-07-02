@@ -39,9 +39,9 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
     }
   };
 
-  function createGame(codeRoom: string, indexTheme: number, playersData?: any) {
+  async function createGame(codeRoom: string, indexTheme: number, playersData?: any) {
     const nextPlayer = 'p' + getNextPlayer(`p${currentPlayerUID}`, playersData).uid;
-    const {selectedWord, wordArray} = generateTheme(indexTheme);
+    const {selectedWord, wordArray} = await generateTheme(indexTheme);
     const updates: any = {};
         
     updates['hangman/rooms/' + codeRoom + '/selectedLetters'] = Array('-');

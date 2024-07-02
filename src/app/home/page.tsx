@@ -1,8 +1,8 @@
 "use client";
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import { database, set, ref, update, get, child, push } from '../../api/firebase';
-import {getthemes} from '../../data';
+import {getThemes, IThemeData} from '../../data';
 import generateRandomWord from "../../utils/generateRandomWord"
 
 import Button from '../../components/button'
@@ -25,6 +25,16 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
   const [checked, setChecked] = useState(1);
   const [name, setName] = useState('');
   const [codeRoom, setCodeRoom] = useState('');
+  const [themes, setThemes] = useState<{ [key: string]: IThemeData }[]>([]);
+
+  useEffect(() => {
+    const fetchThemes = async () => {
+      const data = await getThemes();
+      setThemes(data.themes);
+    };
+
+    fetchThemes();
+  }, []);
 
   function createPlayer(roomKey: string, owner: boolean, name: string) {
     try {
@@ -185,7 +195,7 @@ export default function Home({lang, changeComponent, code, currentPlayerUID, ind
           <Title>{lang.waiting_title}</Title>
 
           <Theme>
-            {getthemes().themes.map((data, i) => (
+            {themes.map((data, i) => (
               renderThemes(data, i)
             ))}
           </Theme>
