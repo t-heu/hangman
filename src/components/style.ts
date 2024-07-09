@@ -64,3 +64,31 @@ export const ButtonRed = styled(ButtonGreen)`
     box-shadow: #ab473f 1px 1px 0 1px;
   }
 `;
+
+export const CharacterDisplay = styled.button`
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  border: 2px solid #444;
+  background-color: #222;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  margin: 1px;
+  box-shadow: #000 1px 1px 0 2px;
+  transition: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  &:hover {
+    box-shadow: #000 inset 2px 2px 0 3px;
+  }
+`;
+
+export const LetterText = styled.p`
+  color: #eee;
+  font-size: 24px;
+  text-align: center;
+`;

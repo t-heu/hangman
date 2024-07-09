@@ -9,11 +9,12 @@ import {
   InfoHeader,
   GuideText,
   LetterContainer,
-  CharacterDisplay,
-  LetterText,
   TimeText
 } from './style';
+
 import Button from '../../components/button';
+import Letter from '../../components/letter';
+
 import generateTheme from '../../utils/generateTheme';
 import {exitPlayer, monitorConnectionStatus} from '../../utils/monitorConnection';
 import getNextPlayer from '../../utils/getNextPlayer';
@@ -74,20 +75,6 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     setPlayers(data.players);
   }, []);
 
-  const handleGameEnd = useCallback((text: string, data: any) => {
-    setStatusGame('gameover');
-
-    const winnerMessage: any = Object.values(data.players).find((player: any) => player.victory);
-
-    if (winnerMessage) {
-      setWinnerMessage(`${winnerMessage.name} ${lang.winner_text}`);
-    } else {
-      setWinnerMessage(text);
-    }
-
-    update(ref(database), { [`hangman/rooms/${code}/gameInProgress`]: false });
-  }, []);
-
   const updateGameState = useCallback((data: any, playersArray: any[]) => {
     const allPlayersReady = playersArray.every((player: any) => player.active && !player.gameover && !player.victory);
     const anyPlayerGameOverOrVictory = playersArray.some((player: any) => player.gameover || player.victory);
@@ -98,7 +85,9 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
 
     if (data.players[data.turn]) {
       if (playersArray.length <= 1) {
-        handleGameEnd(lang.game_status_text, data);
+        setStatusGame('gameover');
+        setWinnerMessage(lang.game_status_text)
+        update(ref(database), { [`hangman/rooms/${code}/gameInProgress`]: false });
       } else {
         setTurn(data.players[data.turn].name);
       }
@@ -112,9 +101,12 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     }
 
     if (anyPlayerGameOverOrVictory) {
-      handleGameEnd(lang.game_over_text, data);
+      setStatusGame('gameover');
+      const winner: any = Object.values(data.players).find((player: any) => player.victory);
+      setWinnerMessage(winner ? `${winner.name} ${lang.winner_text}`: lang.game_over_text);
+      update(ref(database), { [`hangman/rooms/${code}/gameInProgress`]: false });
     }
-  }, [getNextPlayer, handleGameEnd, updateGameInProgressState]);
+  }, [getNextPlayer, updateGameInProgressState]);
 
   const startMultiplayerGame = useCallback((snapshot: any) => {
     const data = snapshot.val();
@@ -157,9 +149,7 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
       if (code) {
         const updates: any = {};
 
-        Object.keys(players).forEach(key => {
-          updates[`hangman/rooms/${code}/players/${key}/gameover`] = true;
-        });
+        Object.keys(players).forEach(key => updates[`hangman/rooms/${code}/players/${key}/gameover`] = true);
         update(ref(database), updates);
       } 
     }
@@ -262,16 +252,6 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
     return null
   }
 
-  const RenderItemLetters = ({ item, index, aa }: any) => {
-    return (
-      <CharacterDisplay
-        key={index}
-        onClick={aa ? () => handleSelectLetter(item) : () => {}}>
-        <LetterText>{item}</LetterText>
-      </CharacterDisplay>
-    )
-  }
-
   return (
     <Main>
       <InfoHeader>
@@ -283,14 +263,14 @@ export default function Game({lang, changeComponent, code, currentPlayerUID, ind
       </InfoHeader>
 
       <LetterContainer>
-        {gameState.wordArray.map((item, index) => <RenderItemLetters key={index} item={item} aa={false} />)}
+        {gameState.wordArray.map((item, index) => <Letter key={index} item={item} handleSelectLetter={() => {}} />)}
       </LetterContainer>
 
       <GuideText>{gameState.selectedWord.dica ? `${lang.tip_text}: ${gameState.selectedWord.dica}` : null}</GuideText>
       
       {statusGame === 'play' ? (
         <LetterContainer>
-          {Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ').map((item, index) => <RenderItemLetters key={index} item={item} aa={true} />)}
+          {Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ').map((item, index) => <Letter key={index} item={item} handleSelectLetter={handleSelectLetter} />)}
         </LetterContainer>
       ) : statusGame === 'gameover' ? (
         <>

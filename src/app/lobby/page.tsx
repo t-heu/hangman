@@ -67,10 +67,9 @@ export default function Lobby({lang, changeComponent, code, currentPlayerUID}: a
       const numPlayers = playersArray.length;
       setPlayers(playersArray);
       setPlayerKey(Object.keys(playersArray).find(key => playersArray[key].uid === currentPlayerUID))
-
+      
       if (numPlayers >= minPlayers && numPlayers <= maxPlayers) {
         const allPlayersReady = playersArray.every((player: any) => player.ready && !player.gameover && !player.victory);
-
         if (allPlayersReady && !data.gameInProgress) {
           createGame(code, data.indexTheme, data.players);
           changeComponent('Game');
