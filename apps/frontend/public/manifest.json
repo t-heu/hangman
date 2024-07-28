@@ -4,32 +4,32 @@
   "description": "Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou offline. Com uma variedade de temas e palavras, a diversão é garantida para todos!",
   "icons": [
     {
-      "src": "/hangmangame/icons/android-chrome-192x192.png",
+      "src": "/hangman/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/hangmangame/icons/android-chrome-384x384.png",
+      "src": "/hangman/icons/android-chrome-384x384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "/hangmangame/icons/icon-512x512.png",
+      "src": "/hangman/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "screenshots" : [
     {
-      "src": "/hangmangame/icons/wide.png",
+      "src": "/hangman/icons/wide.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Homescreen of Awesome App"
     },
     {
-      "src": "/hangmangame/icons/splashscreen.png",
+      "src": "/hangman/icons/splashscreen.png",
       "sizes": "1274x2787",
       "type": "image/png",
       "form_factor": "narrow",
@@ -38,7 +38,7 @@
   ],
   "theme_color": "#262632",
   "background_color": "#262632",
-  "start_url": "/hangmangame",
+  "start_url": "/hangman",
   "display": "standalone",
   "orientation": "portrait"
 }

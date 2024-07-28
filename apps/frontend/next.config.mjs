@@ -19,7 +19,7 @@ const nextConfigFromPWA = {
   reactStrictMode: false,
   swcMinify: false,
   output: "export",
-  basePath: process.env.BUILD_IN_DEV ? "/out" : '/hangmangame',
+  basePath: process.env.BUILD_IN_DEV ? "/out" : '/hangman',
   compiler: {
     styledComponents: true,
   },
