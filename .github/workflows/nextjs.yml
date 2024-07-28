@@ -66,34 +66,38 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
+            apps/frontend/.next/cache
           # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
+        run: | 
+          cd apps/frontend && pnpm install
       - name: 'Create env file'
         run: |
-          touch .env
-          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env
-          echo NEXT_PUBLIC_AUTH_DOMAIN=${{ secrets.NEXT_PUBLIC_AUTH_DOMAIN }} >> .env
-          echo NEXT_PUBLIC_DATABASE_URL=${{ secrets.NEXT_PUBLIC_DATABASE_URL }} >> .env
-          echo NEXT_PUBLIC_PROJECT_ID=${{ secrets.NEXT_PUBLIC_PROJECT_ID }} >> .env
-          echo NEXT_PUBLIC_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_STORAGE_BUCKET }} >> .env
-          echo NEXT_PUBLIC_MESSAGING_SENDER_ID=${{ secrets.NEXT_PUBLIC_MESSAGING_SENDER_ID }} >> .env
-          echo NEXT_PUBLIC_APP_ID=${{ secrets.NEXT_PUBLIC_APP_ID }} >> .env
-          echo NEXT_PUBLIC_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_MEASUREMENT_ID }} >> .env
-          cat .env
+          cd packages/common
+          touch env.ts
+          echo "export const config = {" > env.ts
+          echo "  API_KEY: '${{ secrets.NEXT_PUBLIC_API_KEY }}'," >> env.ts
+          echo "  AUTH_DOMAIN: '${{ secrets.NEXT_PUBLIC_AUTH_DOMAIN }}'," >> env.ts
+          echo "  DATABASE_URL: '${{ secrets.NEXT_PUBLIC_DATABASE_URL }}'," >> env.ts
+          echo "  PROJECT_ID: '${{ secrets.NEXT_PUBLIC_PROJECT_ID }}'," >> env.ts
+          echo "  STORAGE_BUCKET: '${{ secrets.NEXT_PUBLIC_STORAGE_BUCKET }}'," >> env.ts
+          echo "  MESSAGING_SENDER_ID: '${{ secrets.NEXT_PUBLIC_MESSAGING_SENDER_ID }}'," >> env.ts
+          echo "  APP_ID: '${{ secrets.NEXT_PUBLIC_APP_ID }}'," >> env.ts
+          echo "  MEASUREMENT_ID: '${{ secrets.NEXT_PUBLIC_MEASUREMENT_ID }}'" >> env.ts
+          echo "};" >> env.ts
+          cat env.ts
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: List all
-        run: cd out && ls -a
+        run: |
+          cd apps/frontend
+          ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: apps/frontend/out
 
   # Deployment job
   deploy:

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "common/*": ["packages/common/src/*"]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": ["react", "react-dom", "node"]
+  },
+  "include": [
+    "packages/**/*",
+    "apps/**/*"
+  ]
+}

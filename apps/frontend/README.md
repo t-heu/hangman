@@ -1,11 +1,10 @@
-![alt text](docs/icon.png "Title")
+![alt text](../../docs/icon.png "Title")
 
 ## Learn More
 
 Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou offline. Com uma variedade de temas e palavras, a diversão é garantida para todos!
 
 ## Techs
-- Lerna (Monorepo)
 - Nextjs and Reactjs
 - Firebase (Realtime Database)
 - PWA
@@ -17,10 +16,7 @@ Desafie seus amigos ou jogue com pessoas aleatórias no jogo da forca, online ou
 - - Coverage report
 - - Tests used: mock, faker
 
-## Preview WEB
-![alt text](docs/preview.png "Title")
-![alt text](docs/preview2.png "Title")
-![alt text](docs/preview3.png "Title")
-
-## Preview MOBILE
-![alt text](docs/video.gif "Title")
+## Preview
+![alt text](../../docs/preview.png "Title")
+![alt text](../../docs/preview2.png "Title")
+![alt text](../../docs/preview3.png "Title")

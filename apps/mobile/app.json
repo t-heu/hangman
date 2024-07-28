@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "Hangman",
+    "slug": "Hangman",
+    "version": "1.0.9",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splashscreen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#262632"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#262632",
+      "translucent": false
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.matheud.Hangman"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#262632"
+      },
+      "package": "com.matheud.Hangman"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      ["expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/sourceCodePro/SourceCodePro-SemiBold.ttf"
+          ]
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e8c4312d-4783-464d-820e-c2406eebdfbd"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^18",
+    "firebase": "^10.12.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/node": "^20"
+  }
+}
