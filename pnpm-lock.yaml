@@ -17,12 +17,6 @@ importers:
       '@google/generative-ai':
         specifier: ^0.14.1
         version: 0.14.1
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      firebase:
-        specifier: ^10.12.2
-        version: 10.12.4
       node-cron:
         specifier: ^3.0.3
         version: 3.0.3
@@ -151,9 +145,6 @@ importers:
       expo-status-bar:
         specifier: ~1.12.1
         version: 1.12.1
-      firebase:
-        specifier: ^10.12.3
-        version: 10.12.4
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -202,7 +193,7 @@ importers:
         version: 18.2.0
     devDependencies:
       '@types/node':
-        specifier: ^20
+        specifier: ^20.14.12
         version: 20.14.12
       '@types/react':
         specifier: ^18

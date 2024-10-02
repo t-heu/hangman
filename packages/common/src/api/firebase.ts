@@ -3,7 +3,7 @@ import { getDatabase, ref, set, onValue, update, get, child, onDisconnect, remov
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 import {config} from "../../env"
-const {API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID} = config
+const {API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID} = config
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -11,7 +11,8 @@ const firebaseConfig = {
   databaseURL: DATABASE_URL,
   projectId: PROJECT_ID,
   storageBucket: STORAGE_BUCKET,
-  messagingSenderId: MESSAGING_SENDER_ID
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID
 };
 
 /*

@@ -10,13 +10,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "react": "^18",
-    "firebase": "^10.12.4"
+    "firebase": "^10.12.4",
+    "react": "^18"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
+    "@types/node": "^20.14.12",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/node": "^20"
+    "dotenv": "^16.4.5"
   }
 }

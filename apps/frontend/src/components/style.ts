@@ -33,7 +33,7 @@ export const ButtonGreen = styled.button`
   background-color: #36AA4D;
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   padding: 6px 4px;
   border: solid 2px #36AA4D;
   -moz-border-radius: 5px;
@@ -77,14 +77,14 @@ export const CharacterDisplay = styled.button`
   height: 60px;
   width: 60px;
   margin: 1px;
-  box-shadow: #000 1px 1px 0 2px;
+  /*box-shadow: #000 1px 1px 0 2px;*/
   transition: none;
   cursor: pointer;
   font-family: inherit;
 
-  &:hover {
-    box-shadow: #000 inset 2px 2px 0 3px;
-  }
+  /*&:hover {
+     /*box-shadow: #000 inset 2px 2px 0 3px;
+  }*/
 `;
 
 export const LetterText = styled.p`
